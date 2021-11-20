@@ -4,24 +4,25 @@
  * Admin du blog
  */
 class Admin {
-    private string $id;
+    private string $login;
     private string $mdp;
 
     /**
-     * @param string $id identifiant
-     * @param string $mdp mot de passe
+     * @param string $login
+     * @param string $mdp
      */
-    public function __construct(string $id, string $mdp) {
-        $this->id = $id;
+    public function __construct(string $login, string $mdp)
+    {
+        $this->login = $login;
         $this->mdp = $mdp;
     }
 
     /**
-     * @return string identifiant
+     * @return string
      */
-    public function getId(): string
+    public function getLogin(): string
     {
-        return $this->id;
+        return $this->login;
     }
 
     /**
