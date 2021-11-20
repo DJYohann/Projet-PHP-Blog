@@ -9,7 +9,7 @@ class Admin {
 
     /**
      * @param string $id identifiant
-     * @param string $mdp mod de passe
+     * @param string $mdp mot de passe
      */
     public function __construct(string $id, string $mdp) {
         $this->id = $id;
@@ -22,5 +22,13 @@ class Admin {
     public function getId(): string
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMdp(): string
+    {
+        return $this->mdp;
     }
 }
