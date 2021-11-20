@@ -5,6 +5,7 @@ class News {
     private string $date;
     private string $title;
     private string $content;
+    private array $comments;
 
     /**
      * @param int $id
@@ -45,5 +46,12 @@ class News {
      */
     public function getContent(): string {
         return $this->content;
+    }
+
+    /**
+     * @return array
+     */
+    public function getComments(): array {
+        return $this->comments;
     }
 }
