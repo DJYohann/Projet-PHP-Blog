@@ -10,7 +10,7 @@
 				<li class="nav-item">
 					<a href="#" class="nav-link active">ajout de commentaire</a></li>
 				<li class="nav-item">
-                    <form>
+                    <form action="#" method="get">
                         <div class="form-group d-flex">
                             <label for="exampleFormControlInput1">Rechercher (date) : </label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">

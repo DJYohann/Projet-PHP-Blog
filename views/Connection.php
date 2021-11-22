@@ -13,7 +13,7 @@
 <?php include('header.php');?>
 
 <h1 class="text-center">Connexion</h1><br><br>
-<form action="#" method="post" class="d-flex flex-column align-items-center">
+<form action="index.php?action=seconnecter" method="post" class="d-flex flex-column align-items-center">
     <div class="form-group w-25">
         <div>
             <label for="login">Login :</label>
