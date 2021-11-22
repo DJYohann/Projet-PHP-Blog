@@ -24,7 +24,10 @@ class NewsGateway{
         $this->con->executeQuery($query,array(
             ':date' => array($date,PDO::PARAM_INT)
         ));
-        return $this->con->getResult();
+        foreach($this->con->getResult() as $news){
+            $tabNews[] = new News($news['id'],$news['date'],$news['titre'],$news['contenu']);
+        }
+        return $tabNews;
     }
 
     public function deleteNews(News $news)
