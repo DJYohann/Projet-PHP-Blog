@@ -24,6 +24,11 @@ class AdminGateway {
             ':login' => array($login,PDO::PARAM_STR)
         ));
 
-        return $this->con->getResult();
+        $results = $this->con->getResult();
+
+        foreach ($results as $row) {
+            $tabAdmin[] = new Admin($row['login'], $row['mdp']);
+        }
+        return $tabAdmin;
     }
 }

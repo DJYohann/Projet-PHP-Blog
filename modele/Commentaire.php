@@ -1,5 +1,8 @@
 <?php
 
+/**
+ *
+ */
 class Commentaire {
     private string $pseudo;
     private string $content;
