@@ -3,13 +3,14 @@
 /**
  * Admin du blog
  */
-class Admin {
+class Admin
+{
     private string $login;
     private string $mdp;
 
     /**
-     * @param string $login
-     * @param string $mdp
+     * @param string $login identifiant de l'admin
+     * @param string $mdp mot de passe de l'admin
      */
     public function __construct(string $login, string $mdp)
     {
@@ -18,7 +19,7 @@ class Admin {
     }
 
     /**
-     * @return string
+     * @return string identifiant de l'admin
      */
     public function getLogin(): string
     {
@@ -26,7 +27,7 @@ class Admin {
     }
 
     /**
-     * @return string
+     * @return string mot de passe de l'admin
      */
     public function getMdp(): string
     {
