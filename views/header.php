@@ -1,28 +1,28 @@
 <header>
 <!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container mr-1">
+    <div class="container">
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav">
-				<li class="nav-item test">
-					<a href="#" class="nav-link active">ajout de commentaire</a></li>
-                <li class="nav-item test">
-                    <a href="#" class="nav-link active">administration</a></li>
+			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-                    <form  action="#" method="get">
-                        <div class="form-group d-flex mt-2">
-                            <label class="mt-2 mr-1" for="exampleFormControlInput1 ">Rechercher (date) : </label>
-                            <div class="input">
-                                <input type="email" class="form-control" id="exampleFormControlInput1">
-                            </div>
+					<a href="#" class="nav-link active">ajout de commentaire</a></li>
+				<li class="nav-item">
+                    <form action="#" method="get">
+                        <div class="form-group d-flex">
+                            <label for="exampleFormControlInput1">Rechercher (date) : </label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                         </div>
                     </form>
                 </li>
-                    <label class="header-label">nb messages blog : </label>
-                    <label class="header-label">nb messages client : </label>
+				<li class="nav-item">
+					<a href="#actualite" class="nav-link">Actualité</a></li>
+				<li class="nav-item">
+					<a href="#acteurs" class="nav-link">Acteurs</a></li>
+				<li class="nav-item">
+					<a href="#contacter" class="nav-link">Contacter</a></li>
 			</ul>
 		</div>
         </div>
