@@ -37,4 +37,11 @@ class NewsGateway{
             ':id' => array($news->getId(),PDO::PARAM_INT)
         ));
     }
+
+    public function getNbNews() : int
+    {
+        $query = 'SELECT count(*) FROM tNews';
+        $this->con->executeQuery($query);
+        return $this->con->getResult();
+    }
 }

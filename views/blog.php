@@ -14,7 +14,18 @@
 <?php include('header.php');?>
 
 <main>
-
+    <div class="d-flex flex-wrap">
+    <?php
+        if(isset($TNews)){
+            foreach ($TNews as $News){
+                echo '<div>
+                        <p>'.$News->getDate().' : </p>
+                        <a href="index.php?action=contentNews & id='.$News->getId().'" </a>
+                      </div>';
+            }
+        }
+    ?>
+    </div>
 </main>
 </body>
 </html>

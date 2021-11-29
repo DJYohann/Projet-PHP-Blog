@@ -22,7 +22,7 @@
                         <label for="login">Login :</label>
                         <input class="form-control" type="text" id="login" name="user_login" required>
                         <label for="mdp">Mot de passe :</label>
-                        <input class="form-control" type="text" id="mdp" name="user_mdp" required>
+                        <input class="form-control" type="password" id="mdp" name="user_mdp" required>
                     </div>
                     <input class="btn btn-primary btn-sm mt-3" type="submit" value="Connexion" name="valid"/>
                 </div>
