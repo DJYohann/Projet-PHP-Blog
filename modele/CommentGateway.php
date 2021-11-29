@@ -17,21 +17,22 @@ class CommentGateway {
     /**
      * @param Comment $comm commentaire à ajouter
      */
-    public function insert(Comment $comm)
+    public function insert(int $idNews, Comment $comm) : array | false
     {
-        $query = 'INSERT INTO tComments VALUES(:pseudo,:content)';
+        $query = 'INSERT INTO tComments VALUES($idNews,:pseudo,:content)';
         $this->con->executeQuery($query, array(
             ':pseudo' => array($comm->getPseudo(), PDO::PARAM_STR),
             ':content' => array($comm->getContent(), PDO::PARAM_STR)
         ));
+        return $this->con->lastInsertId();
     }
 
     /**
      * @return array tableau de Comment
      */
-    public function findAll()
+    public function findByNews(int $idNews) : array
     {
-        $query = 'SELECT * FROM tComments';
+        $query = 'SELECT * FROM tComments WHERE idNews = $idNews';
         $this->con->executeQuery($query);
 
         $results = $this->con->getResult();
@@ -40,5 +41,12 @@ class CommentGateway {
             $tabComments[] = new Comment($row['pseudo'], $row['content']);
         }
         return $tabComments;
+    }
+
+    public function nbComments() : int
+    {
+        $query = 'SELECT COUNT(*) FROM tComments';
+        $this->con->executeQuery($query);
+        return $this->con->getResult();
     }
 }
