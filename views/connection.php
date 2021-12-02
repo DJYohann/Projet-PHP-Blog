@@ -28,7 +28,16 @@
                 </div>
             </form>
         </div>
+        <?php
+        if (isset($dVueEreur) && count($dVueEreur)>0) {
+            echo "<h2>ERREUR !</h2>";
+            foreach ($dVueEreur as $value){
+                echo $value;
+            }
+        }
+        ?>
     </div>
 </main>
+<?php include('footer.php');?>
 </body>
 </html>
