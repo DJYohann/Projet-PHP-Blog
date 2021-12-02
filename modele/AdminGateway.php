@@ -21,7 +21,7 @@ class AdminGateway
      */
     public function findByLogin(string $login) : array
     {
-        $query = 'SELECT * FROM tAdmin WHERE login = :login';
+        $query = 'SELECT * FROM TAdmin WHERE login = :login';
 
         $this->con->executeQuery($query,array(
             ':login' => array($login,PDO::PARAM_STR)
