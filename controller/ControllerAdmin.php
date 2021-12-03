@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * Contrôleur de l'administrateur
+ */
 class ControllerAdmin
 {
+    /**
+     *
+     */
     public function __construct()
     {
         try

@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Modele
+ */
+class Modele
+{
+
+}
