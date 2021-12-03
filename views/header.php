@@ -7,8 +7,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav">
-				<li class="nav-item test">
-					<a href="#" class="nav-link active">ajout de commentaire</a></li>
+				<!--<li class="nav-item test">
+					<a href="#" class="nav-link active">ajout de commentaire</a></li>-->
                 <li class="nav-item test">
                     <a href="#" class="nav-link active">administration</a></li>
 				<li class="nav-item">

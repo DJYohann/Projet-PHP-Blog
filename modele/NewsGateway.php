@@ -39,6 +39,13 @@ class NewsGateway{
         ));
     }
 
+    public function tmpAfficheNews()
+    {
+        $query = 'SELECT * FROM TNews';
+        $this->con->executeQuery($query);
+        return $this->con->getResult();
+    }
+
     public function getNbNews() : int
     {
         $query = 'SELECT count(*) FROM TNews';
