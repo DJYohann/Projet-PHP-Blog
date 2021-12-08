@@ -20,9 +20,12 @@ class ModeleAdmin
     /**
      *
      */
-    public function connection()
+    public function connection(string $login, string $mdp)
     {
+        $login = Nettoyage::nettoyerChaine($login);
+        $mdp = Nettoyage::nettoyerChaine($mdp);
 
+        $_SESSION['role'] = 'admin';
     }
 
     /**
