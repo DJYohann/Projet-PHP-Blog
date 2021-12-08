@@ -37,17 +37,27 @@ class ControllerUtil
         }
     }
 
-    public function ajoutCommentaire(){
-        if(isset($_POST['pseudo']) && isset($_POST['message'])){
-
-        }
-        else $dVueEreur [] = "";
-    }
-
     public function rechercherNews(){
         $mdl = new Modele();
         $TNews = $mdl->findByDate();
-        require ("../views/blog.php");
+        require ("index.php");
+    }
+
+    public function ajoutCommentaire(){
+        if(isset($_GET['id']) && isset($_POST['pseudo']) && isset($_POST['message'])){
+            $id = Nettoyage::nettoyerChaine($_GET['id']);
+            $pseudo = Nettoyage::nettoyerChaine($_POST['pseudo']);
+            $message = Nettoyage::nettoyerChaine($_POST['message']);
+            $mdl = new Modele();
+            $mdl->insertComment($id, new Comment($pseudo,$message));
+            $nbMesBlog = $mdl->nbComments();
+            require ("index.php?action=null");
+        }
+        else{
+            $dVueEreur [] = "veuillez renseigner le pseudo ou le message"; //utilisateur malveillant qui ne passe pas par le formulaire
+            require("../views/erreur.php");
+        }
+
     }
 
     public function afficherNews()
