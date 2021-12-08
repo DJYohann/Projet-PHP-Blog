@@ -5,10 +5,10 @@
  */
 class Autoload
 {
-    private static $instance;
+    private static $instance = null;
 
     /**
-     * @return void
+     *
      */
     public static function charge()
     {
@@ -26,7 +26,7 @@ class Autoload
     }
 
     /**
-     * @return void
+     *
      */
     public static function shutDown()
     {
@@ -41,13 +41,13 @@ class Autoload
     }
 
     /**
-     * @param $class
+     * @param $class classe à autocharger
      */
     private static function autoload($class)
     {
         global $rep;
         $filename = "$class.php";
-        $dir = array('controller/', 'modele/', 'utils/');
+        $dir = array('./', 'controller/', 'modele/', 'utils/');
         foreach ($dir as $d)
         {
             $file = "$rep$filename";
