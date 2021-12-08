@@ -40,7 +40,7 @@ class ControllerUtil
     public function rechercherNews(){
         $mdl = new Modele();
         $TNews = $mdl->findByDate();
-        require ("index.php");
+        require ("../views/blog.php");
     }
 
     public function ajoutCommentaire(){
@@ -50,8 +50,7 @@ class ControllerUtil
             $message = Nettoyage::nettoyerChaine($_POST['message']);
             $mdl = new Modele();
             $mdl->insertComment($id, new Comment($pseudo,$message));
-            $nbMesBlog = $mdl->nbComments();
-            require ("index.php?action=null");
+            $this->afficherNews();
         }
         else{
             $dVueEreur [] = "veuillez renseigner le pseudo ou le message"; //utilisateur malveillant qui ne passe pas par le formulaire
@@ -63,6 +62,7 @@ class ControllerUtil
     public function afficherNews()
     {
         $mdl = new Modele();
+        $nbMesBlog = $mdl->nbComments();
         $TNews = $mdl->tmpAfficheNews();
         require ("../views/blog.php");
     }
