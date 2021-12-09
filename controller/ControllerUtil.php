@@ -1,6 +1,8 @@
 <?php
-include ('modele/Modele.php');
 
+/**
+ *
+ */
 class ControllerUtil
 {
 
@@ -14,11 +16,11 @@ class ControllerUtil
 
             switch ($action)
             {
-                case rechercher:
+                case 'rechercher':
                     $this->rechercherNews();
                     break;
 
-                case commentaire:
+                case 'commentaire':
                     $this->ajoutCommentaire();
                     break;
 
@@ -27,23 +29,27 @@ class ControllerUtil
                     break;
 
                 default:
+                    global $rep,$vues;
                     $dVueEreur [] = "Erreur d'appel php";
-                    require ("../views/erreur.php");
+                    require($rep.$vues['erreur']);
                     break;
             }
         }catch (PDOException $e){
+            global $rep,$vues;
             $dVueEreur [] = "Erreur exception";
-            require("../views/erreur.php");
+            require($rep.$vues['erreur']);
         }
     }
 
     public function rechercherNews(){
+        global $rep,$vues;
         $mdl = new Modele();
         $TNews = $mdl->findByDate();
-        require ("../views/blog.php");
+        require ($rep.$vues['blog']);
     }
 
     public function ajoutCommentaire(){
+        global $rep,$vues;
         if(isset($_GET['id']) && isset($_POST['pseudo']) && isset($_POST['message'])){
             $id = Nettoyage::nettoyerChaine($_GET['id']);
             $pseudo = Nettoyage::nettoyerChaine($_POST['pseudo']);
@@ -54,17 +60,18 @@ class ControllerUtil
         }
         else{
             $dVueEreur [] = "veuillez renseigner le pseudo ou le message"; //utilisateur malveillant qui ne passe pas par le formulaire
-            require("../views/erreur.php");
+            require($rep.$vues['erreur']);
         }
 
     }
 
     public function afficherNews()
     {
+        global $rep,$vues;
         $mdl = new Modele();
         $nbMesBlog = $mdl->nbComments();
         $TNews = $mdl->tmpAfficheNews();
-        require ("../views/blog.php");
+        require($rep.$vues['blog']);
     }
 
 }

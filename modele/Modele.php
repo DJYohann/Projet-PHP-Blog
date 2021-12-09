@@ -10,7 +10,7 @@ class Modele
 
     public function __construct()
     {
-        $con = new Connection($dns,$login,$pass);
+        global $con;
         $this->gateNews = new NewsGateway($con);
         $this->gateComment = new CommentGateway($con);
     }
@@ -59,7 +59,7 @@ class Modele
         return $this->gateComment->findByNews($idNews);
     }
 
-    public function nbComments() : int
+    public function nbComments() : string
     {
         return $this->gateComment->nbComments();
     }

@@ -50,7 +50,9 @@ class Autoload
         $dir = array('./', 'controller/', 'modele/', 'utils/');
         foreach ($dir as $d)
         {
-            $file = "$rep$filename";
+            echo "<br>";
+            $file = "$rep$d$filename";
+            echo "<br>";
             if (file_exists($file))
             {
                 include $file;

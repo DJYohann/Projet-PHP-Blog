@@ -39,7 +39,7 @@ class NewsGateway{
         ));
     }
 
-    public function tmpAfficheNews()
+    public function tmpAfficheNews() : array
     {
         $query = 'SELECT * FROM TNews';
         $this->con->executeQuery($query);

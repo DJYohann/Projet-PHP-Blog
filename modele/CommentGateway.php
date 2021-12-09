@@ -53,10 +53,10 @@ class CommentGateway {
     /**
      * @return int nombre de commentaires
      */
-    public function nbComments() : int
+    public function nbComments() : string
     {
         $query = 'SELECT COUNT(*) FROM tComments';
         $this->con->executeQuery($query);
-        return $this->con->getResult();
+        return $this->con->getResult()[0][0];
     }
 }
