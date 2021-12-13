@@ -15,7 +15,7 @@ $con = new Connection($dsn, $login, $mdp);
 $vues['erreur'] = 'views/erreur.php';
 $vues['blog'] = 'views/blog.php';
 $vues['comment'] = 'views/commentaires.php';
-$vues['connect'] = 'views/blog.php';
+$vues['connect'] = 'views/connection.php';
 $vues['content-news'] = 'views/contentNews.php';
 
 ?>

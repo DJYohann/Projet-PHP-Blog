@@ -8,8 +8,9 @@ class FrontController
 
     public function __construct()
     {
-        $liste_admin = array('connect', 'deconnect', 'insNews', 'delNews');
         $mdl = new ModeleAdmin();
+        $liste_admin = array('connect', 'deconnect', 'insNews', 'delNews');
+
         try {
             $admin = $mdl->isAdmin();
 
@@ -22,8 +23,8 @@ class FrontController
             {
                 if ($admin === null)
                 {
-                    $_REQUEST['ation'] = 'conn';
-                    new ControllerUtil();
+                    global $rep, $vues;
+                    require($rep.$vues['connect']);
                 }
                 else
                     new ControllerAdmin();

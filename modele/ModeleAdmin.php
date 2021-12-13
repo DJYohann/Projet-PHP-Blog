@@ -13,8 +13,9 @@ class ModeleAdmin
      */
     public function __construct()
     {
-        $this->adminGw = new AdminGateway();
-        $this->newsGw = new NewsGateway();
+        global $con;
+        $this->adminGw = new AdminGateway($con);
+        $this->newsGw = new NewsGateway($con);
     }
 
     /**
