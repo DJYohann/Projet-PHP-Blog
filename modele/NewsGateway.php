@@ -19,6 +19,19 @@ class NewsGateway{
         ));
     }
 
+    public function findByPage($page,$nbNews) : array
+    {
+        $query = 'SELECT * FROM tnews LIMIT (:page - 1)*:nbNews,:nbNews';
+        $this->con->executeQuery($query,array(
+            ':page' => array($page,PDO::PARAM_STR),
+            ':nbNews' => array($nbNews,PDO::PARAM_STR)
+        ));
+        foreach($this->con->getResult() as $news){
+            $tabNews[] = new News($news['id'],$news['date_creation'],$news['title'],$news['author'],$news['content']);
+        }
+        return $tabNews;
+    }
+
     public function findByDate(date $date) : array
     {
         $query = 'SELECT * FROM TNews WHERE date = :date';
@@ -50,6 +63,6 @@ class NewsGateway{
     {
         $query = 'SELECT count(*) FROM TNews';
         $this->con->executeQuery($query);
-        return $this->con->getResult();
+        return (int) $this->con->getResult()[0][0];
     }
 }

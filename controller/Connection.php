@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Connexion entre PHP et la base de données
  */

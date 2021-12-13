@@ -71,8 +71,6 @@ class ControllerUtil
         $mdl = new Modele();
         $nbMesBlog = $mdl->nbComments();
         $TNews = $mdl->tmpAfficheNews();
-        var_dump($nbMesBlog);
-        var_dump($TNews);
         require($rep.$vues['blog']);
     }
 

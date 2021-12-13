@@ -20,12 +20,18 @@
             foreach ($TNews as $News){
                 echo '<div>
                         <p>'.$News->getDate().' : </p>
-                        <a href="index.php?action=contentNews & id='.$News->getId().'" </a>
+                        <a href="index.php?action=contentNews&id='.$News->getId().'" </a>
                       </div>';
             }
         }
     ?>
     </div>
+    <?php
+        $nbMaxNews = (isset($maxNews) && $maxNews > 0) ? $maxNews : 3;
+        $page = ((isset($page) && page > 0) ? $page : 1);
+
+        if()
+        ?>
 </main>
 <?php include('footer.php');?>
 </body>
