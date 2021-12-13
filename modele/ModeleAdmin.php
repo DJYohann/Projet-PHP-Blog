@@ -19,14 +19,24 @@ class ModeleAdmin
     }
 
     /**
-     *
+     * @param string $login
+     * @param string $mdp
+     * @return mixed|null
      */
     public function connection(string $login, string $mdp)
     {
-        $login = Nettoyage::nettoyerChaine($login);
-        $mdp = Nettoyage::nettoyerChaine($mdp);
-
-        $_SESSION['role'] = 'admin';
+        global $con;
+        $admin_gw = new AdminGateway($con);
+        $tabUser = $admin_gw->findByLogin($login);
+        foreach ($tabUser as $user)
+        {
+            if (password_verify($mdp, $user->getMdp()))
+            {
+                $_SESSION['login'] = $user->getMdp();
+                return $user;
+            }
+        }
+        return null;
     }
 
     /**
@@ -45,10 +55,7 @@ class ModeleAdmin
     public function isAdmin()
     {
         if (isset($_SESSION['login']))
-        {
-            $login = Nettoyage::nettoyerChaine($_SESSION['login']);
-            return new Admin($login);
-        }
-        else return null;
+            return true;
+        return false;
     }
 }

@@ -16,7 +16,7 @@
     <div class="w-100 d-flex flex-column align-items-center">
         <div class="conteneur w-50 d-flex flex-column align-items-center">
             <h1>Connexion</h1><br><br>
-            <form action="index.php?action=seconnecter" method="post" class="d-flex flex-column form">
+            <form action="index.php?action=connect" method="post" class="d-flex flex-column form">
                 <div class="form-group">
                     <div class="w-100">
                         <label for="login">Login :</label>

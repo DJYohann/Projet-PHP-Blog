@@ -18,7 +18,9 @@ class ControllerAdmin
                 $action = $_REQUEST['action'];
             switch ($action)
             {
-
+                case 'connect' :
+                    $this->connect();
+                    break;
             }
         }
         catch (PDOException $e)
@@ -27,11 +29,14 @@ class ControllerAdmin
         }
     }
 
-    public function seConnecter()
+    public function connect()
     {
         if (isset($_POST['login']) && isset($_POST['mdp']))
-        $mdl = new ModeleAdmin();
-        $mdl->connection($_POST['login'], $_POST['mdp']);
+        {
+            $mdl = new ModeleAdmin();
+            $mdl->connection($_POST['login'], $_POST['mdp']);
+
+        }
     }
 
     public function ajouterNews()

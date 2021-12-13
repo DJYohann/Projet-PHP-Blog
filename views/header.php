@@ -10,7 +10,7 @@
 				<!--<li class="nav-item test">
 					<a href="#" class="nav-link active">ajout de commentaire</a></li>-->
                 <li class="nav-item test">
-                    <a href="#" class="nav-link active">administration</a></li>
+                    <a href="views/connection.php" class="nav-link active">administration</a></li>
 				<li class="nav-item">
                     <form  action="#" method="get">
                         <div class="form-group d-flex mt-2">

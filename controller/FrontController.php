@@ -6,6 +6,9 @@
 class FrontController
 {
 
+    /**
+     *
+     */
     public function __construct()
     {
         $mdl = new ModeleAdmin();
@@ -21,7 +24,7 @@ class FrontController
 
             if (in_array($action, $liste_admin))
             {
-                if ($admin === null)
+                if (!$admin)
                 {
                     global $rep, $vues;
                     require($rep.$vues['connect']);
