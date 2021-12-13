@@ -16,7 +16,7 @@
                         <div class="form-group d-flex mt-2">
                             <label class="mt-2 mr-1" for="exampleFormControlInput1 ">Rechercher (date) : </label>
                             <div class="input">
-                                <input type="email" class="form-control" id="exampleFormControlInput1">
+                                <input type="text" class="form-control" id="exampleFormControlInput1">
                             </div>
                         </div>
                     </form>
