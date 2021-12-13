@@ -1,62 +1,51 @@
 <?php
 
-/**
- * Autochargement des classes
- */
 class Autoload
 {
-    private static $instance = null;
+    private static $_instance = null;
 
-    /**
-     *
-     */
-    public static function charge()
+    public static function charger()
     {
-        if (self::$instance !== null)
-        {
-            throw new RuntimeException(sprintf("%s est déjà instancié", __CLASS__));
+        if(null !== self::$_instance) {
+            throw new RuntimeException(sprintf('%s is already started', __CLASS__));
         }
 
-        self::$instance = new self();
+        self::$_instance = new self();
 
-        if (!spl_autoload_register(array(self::$instance, 'autoload'), false))
-        {
-            throw new RuntimeException(sprintf("%s : autoload ne peut pas démarrer, __CLASS__"));
+
+        if(!spl_autoload_register(array(self::$_instance, '_autoload'), false)) {
+            throw RuntimeException(sprintf('%s : Could not start the autoload', __CLASS__));
         }
     }
 
-    /**
-     *
-     */
     public static function shutDown()
     {
-        if (self::$instance !== null)
-        {
-            if (!spl_autoload_unregister(array(self::$instance, 'autoload')))
-            {
-                throw new RuntimeException("autoload ne veut pas se stopper");
+        if(null !== self::$_instance) {
+
+            if(!spl_autoload_unregister(array(self::$_instance, '_autoload'))) {
+                throw new RuntimeException('Could not stop the autoload');
             }
-            self::$instance = null;
+
+            self::$_instance = null;
         }
     }
 
-    /**
-     * @param $class classe à autocharger
-     */
-    private static function autoload($class)
+    private static function _autoload($class)
     {
         global $rep;
-        $filename = "$class.php";
-        $dir = array('./', 'controller/', 'modele/', 'utils/');
-        foreach ($dir as $d)
-        {
-            echo "<br>";
-            $file = "$rep$d$filename";
-            echo "<br>";
+        $filename = $class.'.php';
+        $dir =array('modele/','./','utils/','controller/');
+        foreach ($dir as $d){
+            $file=$rep.$d.$filename;
+            //echo $file;
             if (file_exists($file))
             {
                 include $file;
             }
         }
+
     }
 }
+
+
+?>
