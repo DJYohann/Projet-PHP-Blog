@@ -6,8 +6,8 @@ $rep = __DIR__.'/../';
 
 // BDD
 $dsn = "mysql:host=localhost;dbname=blog";
-$login = "yobreuil";
-$mdp = "djyoyo2312**";
+$login = "blog";
+$mdp = "azertyuiop";
 
 $con = new Connection($dsn, $login, $mdp);
 
