@@ -17,10 +17,10 @@
 <main>
     <?php
     if(!(isset($nbMaxNews ) && $nbMaxNews > 0)){
-        $nbMaxNews = 3;
-    }
-    if(!(isset($page ) && $page > 0)){
         $nbMaxNews = 1;
+    }
+    if(!(isset($page) && $page > 0)){
+        $page = 1;
     }
     ?>
     <div class="d-flex flex-wrap test mt-5 justify-content-between">

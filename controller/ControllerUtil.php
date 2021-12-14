@@ -78,7 +78,7 @@ class ControllerUtil
         $mdl = new Modele();
         $nbMesBlog = $mdl->nbComments();
         $nbNews = $mdl->getNbNews();
-        $TNews = $mdl->findByPage($page,$nbNews);
+        $TNews = $mdl->findByPage($page,1);
         require($rep.$vues['blog']);
     }
 
