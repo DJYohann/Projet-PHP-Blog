@@ -21,10 +21,12 @@ class NewsGateway{
 
     public function findByPage($page,$nbNews) : array
     {
-        $query = 'SELECT * FROM tnews LIMIT (:page - 1)*:nbNews,:nbNews';
+        $page = $page - 1;
+        $debut = $page * $nbNews; //erreur avec limit si je ne fait pas ça. Il n'accepte par les ();
+        $query = 'SELECT * FROM tnews LIMIT :debut,:nbNews';
         $this->con->executeQuery($query,array(
-            ':page' => array($page,PDO::PARAM_STR),
-            ':nbNews' => array($nbNews,PDO::PARAM_STR)
+            ':debut' => array($debut,PDO::PARAM_INT),
+            ':nbNews' => array($nbNews,PDO::PARAM_INT)
         ));
         foreach($this->con->getResult() as $news){
             $tabNews[] = new News($news['id'],$news['date_creation'],$news['title'],$news['author'],$news['content']);

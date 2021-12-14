@@ -1,0 +1,14 @@
+.test{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.pages{
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.news{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    padding: 5px;
+}

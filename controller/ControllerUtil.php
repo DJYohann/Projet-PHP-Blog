@@ -36,6 +36,7 @@ class ControllerUtil
             }
         }catch (PDOException $e){
             global $rep,$vues;
+            echo "yoooo";
             $dVueEreur [] = "Erreur exception";
             require($rep.$vues['erreur']);
         }
@@ -68,9 +69,16 @@ class ControllerUtil
     public function afficherNews()
     {
         global $rep,$vues;
+        if(isset($_GET['page'])){
+            $page = Nettoyage::nettoyerChaine($_GET['page']);
+        }
+        else{
+            $page = 1;
+        }
         $mdl = new Modele();
         $nbMesBlog = $mdl->nbComments();
-        $TNews = $mdl->tmpAfficheNews();
+        $nbNews = $mdl->getNbNews();
+        $TNews = $mdl->findByPage($page,$nbNews);
         require($rep.$vues['blog']);
     }
 

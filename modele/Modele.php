@@ -43,9 +43,9 @@ class Modele
         return $this->gateNews->getNbNews();
     }
 
-    public function tmpAfficheNews()
+    public function findByPage($page,$nbNews)
     {
-        return $this->gateNews->tmpAfficheNews();
+        return $this->gateNews->findByPage($page,$nbNews);
     }
 
     //Comments

@@ -9,14 +9,15 @@
 			<ul class="navbar-nav">
 				<!--<li class="nav-item test">
 					<a href="#" class="nav-link active">ajout de commentaire</a></li>-->
-                <li class="nav-item test">
+                <li class="nav-item">
                     <a href="views/connection.php" class="nav-link active">administration</a></li>
 				<li class="nav-item">
                     <form  action="#" method="get">
                         <div class="form-group d-flex mt-2">
                             <label class="mt-2 mr-1" for="exampleFormControlInput1 ">Rechercher (date) : </label>
-                            <div class="input">
+                            <div class="input d-flex">
                                 <input type="text" class="form-control" id="exampleFormControlInput1">
+                                <button type="submit" style="background-color: white">ok</button>
                             </div>
                         </div>
                     </form>
