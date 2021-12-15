@@ -48,6 +48,11 @@ class Modele
         return $this->gateNews->findByPage($page,$nbNews);
     }
 
+    public function findNewsById($id)
+    {
+        return $this->gateNews->findNewsById($id);
+    }
+
     //Comments
     public function insertComment(int $idNews, Comment $comm) : bool
     {

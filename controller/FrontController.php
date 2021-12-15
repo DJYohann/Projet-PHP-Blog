@@ -40,6 +40,7 @@ class FrontController
             global $rep,$vues;
             $dVueEreur [] = "Erreur exception";
             require($rep.$vues['erreur']);
+
         }
     }
 }

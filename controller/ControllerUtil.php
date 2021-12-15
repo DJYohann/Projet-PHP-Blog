@@ -91,8 +91,8 @@ class ControllerUtil
         if (isset($_GET['id'])){
             $id = Nettoyage::nettoyerChaine($_GET['id']);
             $mdl = new Modele();
-            $news = $mdl->findByNews($id);
-            echo gettype($news);
+            $news = $mdl->findNewsById($id);
+            require($rep.$vues['content-news']);
         }
         else{
             $dVueEreur [] = "Aucune news sélectionée"; //utilisateur malveillant qui ne passe pas par le formulaire

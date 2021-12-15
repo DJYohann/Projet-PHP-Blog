@@ -36,7 +36,7 @@ class NewsGateway{
 
     public function findByDate(date $date) : array
     {
-        $query = 'SELECT * FROM TNews WHERE date = :date';
+        $query = 'SELECT * FROM tnews WHERE date = :date';
         $this->con->executeQuery($query,array(
             ':date' => array($date,PDO::PARAM_INT)
         ));
@@ -48,17 +48,23 @@ class NewsGateway{
 
     public function deleteNews(News $news)
     {
-        $query = 'DELETE FROM TNews WHERE id = :id';
+        $query = 'DELETE FROM tnews WHERE id = :id';
         $this->con->executeQuery($query,array(
             ':id' => array($news->getId(),PDO::PARAM_INT)
         ));
     }
 
-    public function tmpAfficheNews() : array
+    public function findNewsById(int $id) : News
     {
-        $query = 'SELECT * FROM TNews';
-        $this->con->executeQuery($query);
-        return $this->con->getResult();
+        $query = 'SELECT * FROM tnews WHERE id = :id';
+        $this->con->executeQuery($query,array(
+            ':id' => array($id,PDO::PARAM_INT)
+        ));
+
+        foreach ($this->con->getResult() as $news){
+            $maNews = new News($news['id'],$news['date_creation'],$news['title'],$news['author'],$news['content']);
+        }
+        return $maNews;
     }
 
     public function getNbNews() : int
