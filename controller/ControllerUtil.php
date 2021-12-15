@@ -24,6 +24,10 @@ class ControllerUtil
                     $this->ajoutCommentaire();
                     break;
 
+                case 'contentNews':
+                    $this->afficherUneNews();
+                    break;
+
                 case NULL:
                     $this->afficherNews();
                     break;
@@ -36,7 +40,6 @@ class ControllerUtil
             }
         }catch (PDOException $e){
             global $rep,$vues;
-            echo "yoooo";
             $dVueEreur [] = "Erreur exception";
             require($rep.$vues['erreur']);
         }
@@ -80,6 +83,22 @@ class ControllerUtil
         $nbNews = $mdl->getNbNews();
         $TNews = $mdl->findByPage($page,$nbNews);
         require($rep.$vues['blog']);
+    }
+
+    public function afficherUneNews()
+    {
+        global $rep,$vues;
+        if (isset($_GET['id'])){
+            $id = Nettoyage::nettoyerChaine($_GET['id']);
+            $mdl = new Modele();
+            $news = $mdl->findByNews($id);
+            echo gettype($news);
+        }
+        else{
+            $dVueEreur [] = "Aucune news sélectionée"; //utilisateur malveillant qui ne passe pas par le formulaire
+            require($rep.$vues['erreur']);
+        }
+
     }
 
 }
