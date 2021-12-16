@@ -72,6 +72,8 @@ class ControllerUtil
     public function afficherNews()
     {
         global $rep,$vues;
+        $maxNews = 1;
+
         if(isset($_GET['page'])){
             $page = Nettoyage::nettoyerChaine($_GET['page']);
         }
@@ -81,7 +83,7 @@ class ControllerUtil
         $mdl = new Modele();
         $nbMesBlog = $mdl->nbComments();
         $nbNews = $mdl->getNbNews();
-        $TNews = $mdl->findByPage($page,1);
+        $TNews = $mdl->findByPage($page,$maxNews);
         require($rep.$vues['blog']);
     }
 

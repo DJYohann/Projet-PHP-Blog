@@ -16,7 +16,7 @@
 <main class="d-flex flex-column align-items-center justify-content-center">
         <div class="conteneur-news mx-5">
             <?php
-                echo '<h3>'.$news->getTitle().'</h3><br><br>
+                echo '<div class="d-flex justify-content-center"><h3>'.$news->getTitle().'</h3></div><br><br>
                       <div>'.$news->getContent().'</div>';
             ?>
         </div>
