@@ -71,8 +71,7 @@ class ControllerUtil
 
     public function afficherNews()
     {
-        global $rep,$vues;
-        $maxNews = 1;
+        global $rep,$vues, $maxNews;
 
         if(isset($_GET['page'])){
             $page = Nettoyage::nettoyerChaine($_GET['page']);

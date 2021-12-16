@@ -27,8 +27,8 @@ class ModeleAdmin
     {
         global $con;
         $admin_gw = new AdminGateway($con);
-        $tabUser = $admin_gw->findByLogin($login);
-        foreach ($tabUser as $user)
+        $users = $admin_gw->findByLogin($login);
+        foreach ($users as $user)
         {
             if (password_verify($mdp, $user->getMdp()))
             {

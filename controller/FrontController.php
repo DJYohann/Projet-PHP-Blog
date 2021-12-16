@@ -14,7 +14,8 @@ class FrontController
         $mdl = new ModeleAdmin();
         $liste_admin = array('connect', 'deconnect', 'insNews', 'delNews');
 
-        try {
+        try
+        {
             $admin = $mdl->isAdmin();
 
             if (!isset($_REQUEST['action']))
@@ -24,13 +25,13 @@ class FrontController
 
             if (in_array($action, $liste_admin))
             {
-                if (!$admin)
+                if ($admin && $action == 'connect')
                 {
-                    global $rep, $vues;
-                    require($rep.$vues['connect']);
+                    new ControllerAdmin();
                 }
                 else
-                    new ControllerAdmin();
+                    global $rep, $vues;
+                    require($rep.$vues['connect']);
             }
             else
                 new ControllerUtil();

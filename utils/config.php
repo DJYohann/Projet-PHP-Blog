@@ -11,6 +11,9 @@ $mdp = "azertyuiop";
 
 $con = new Connection($dsn, $login, $mdp);
 
+// News
+$maxNews = 1;
+
 // Views
 $vues['erreur'] = 'views/erreur.php';
 $vues['blog'] = 'views/blog.php';

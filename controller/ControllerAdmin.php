@@ -21,21 +21,31 @@ class ControllerAdmin
                 case 'connect' :
                     $this->connect();
                     break;
+                default:
+                    global $rep,$vues;
+                    $dVueEreur [] = "Erreur d'appel php";
+                    require($rep.$vues['erreur']);
+                    break;
             }
         }
         catch (PDOException $e)
         {
-
+            global $rep,$vues;
+            $dVueEreur [] = "Erreur exception";
+            require($rep.$vues['erreur']);
         }
     }
 
     public function connect()
     {
-        if (isset($_POST['login']) && isset($_POST['mdp']))
+        global $rep,$vues;
+        if (isset($_POST['user_login']) && isset($_POST['user_mdp']))
         {
+            var_dump($_POST['user_login']);
+            var_dump($_POST['user_mdp']);
             $mdl = new ModeleAdmin();
-            $mdl->connection($_POST['login'], $_POST['mdp']);
-
+            $mdl->connection($_POST['user_login'], $_POST['user_mdp']);
+            require($rep.$vues['blog']);
         }
     }
 
