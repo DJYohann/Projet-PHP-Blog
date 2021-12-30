@@ -8,6 +8,7 @@ class ControllerUtil
 
     public function __construct()
     {
+        global $rep,$vues;
         try {
             if (!isset($_REQUEST['action']))
                 $action = NULL;
@@ -33,22 +34,21 @@ class ControllerUtil
                     break;
 
                 default:
-                    global $rep,$vues;
                     $dVueEreur [] = "Erreur d'appel php";
                     require($rep.$vues['erreur']);
                     break;
             }
         }catch (PDOException $e){
-            global $rep,$vues;
             $dVueEreur [] = "Erreur exception";
             require($rep.$vues['erreur']);
         }
     }
 
     public function rechercherNews(){
-        global $rep,$vues;
+        global $rep,$vues, $nbComments;
         $mdl = new Modele();
         $TNews = $mdl->findByDate();
+        $nbComments = $mdl->getNbComments();
         require ($rep.$vues['blog']);
     }
 
@@ -71,7 +71,7 @@ class ControllerUtil
 
     public function afficherNews()
     {
-        global $rep,$vues, $maxNews;
+        global $rep,$vues, $maxNews, $nbComments;
 
         if(isset($_GET['page'])){
             $page = Nettoyage::nettoyerChaine($_GET['page']);
@@ -80,19 +80,20 @@ class ControllerUtil
             $page = 1;
         }
         $mdl = new Modele();
-        $nbMesBlog = $mdl->nbComments();
         $nbNews = $mdl->getNbNews();
+        $nbComments = $mdl->getNbComments();
         $TNews = $mdl->findByPage($page,$maxNews);
         require($rep.$vues['blog']);
     }
 
     public function afficherUneNews()
     {
-        global $rep,$vues;
+        global $rep,$vues, $nbComments;
         if (isset($_GET['id'])){
             $id = Nettoyage::nettoyerChaine($_GET['id']);
             $mdl = new Modele();
             $news = $mdl->findNewsById($id);
+            $nbComments = $mdl->getNbComments();
             require($rep.$vues['content-news']);
         }
         else{

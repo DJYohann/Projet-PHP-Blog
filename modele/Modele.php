@@ -64,7 +64,7 @@ class Modele
         return $this->gateComment->findByNews($idNews);
     }
 
-    public function nbComments() : string
+    public function getNbComments() : string
     {
         return $this->gateComment->nbComments();
     }

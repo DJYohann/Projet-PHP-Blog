@@ -7,27 +7,42 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav">
-				<!--<li class="nav-item test">
-					<a href="#" class="nav-link active">ajout de commentaire</a></li>-->
                 <?php
-                if(!isset($_REQUEST['clickAdministration'])) { //pour ne pas pouvoir recliquer sur la page de connection
-                    echo "<li class=\"nav-item\">
-                    <a href=\"views/connection.php?clickAdministration\" class=\"nav-link active\">administration</a></li>";
-                }
+                    $page = explode("/", $_SERVER['PHP_SELF']);
+                    $page = end($page);
+                    switch ($page)
+                    {
+                        case "connection.php":
+                            echo "<li class=\"nav-item\"> <a href=\"../index.php\" class=\"nav-link active\">accueil</a></li>";
+                            break;
+                        case "blog.php":
+                            echo "<li class=\"nav-item\"> <a href=\"../views/connection.php\" class=\"nav-link active\">connexion</a></li>";
+                            break;
+                        case "index.php":
+                            echo "<li class=\"nav-item\"> <a href=\"./views/connection.php\" class=\"nav-link active\">connexion</a></li>";
+                            break;
+                    }
                     ?>
-				<li class="nav-item">
-                    <form  action="#" method="get">
-                        <div class="form-group d-flex mt-2">
-                            <label class="mt-2 mr-1" for="exampleFormControlInput1 ">Rechercher (date) : </label>
-                            <div class="input d-flex">
-                                <input type="text" class="form-control" id="exampleFormControlInput1">
-                                <button type="submit" style="background-color: white">ok</button>
-                            </div>
-                        </div>
-                    </form>
+                <?php
+                    if ($page == "index.php")
+                    {
+                        echo '<li class=\"nav-item\">
+                                <form  action="#" method="get">
+                                    <div class="form-group d-flex mt-2">
+                                     <label class="mt-2 mr-1" for="input">Rechercher (date) : </label>
+                                     <div class="input d-flex">
+                                         <input type="text" class="form-control" id="input">
+                                         <button type="submit" style="background-color: white">ok</button>
+                                     </div>
+                                 </div>
+                             </form>
+                         </li>';
+                    }
+                    ?>
                 </li>
-                    <label class="header-label">nb messages blog : </label>
-                    <label class="header-label">nb messages client : </label>
+                    <label class="header-label">nb commentaires blog : <?php echo "$nbComments" ?> </label>
+                    <label class="header-label">nb commenaires client : </label>
+                    <label class="header-label"> connecté :  </label>
 			</ul>
 		</div>
         </div>

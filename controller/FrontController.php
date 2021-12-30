@@ -11,6 +11,7 @@ class FrontController
      */
     public function __construct()
     {
+        global $rep, $vues;
         $mdl = new ModeleAdmin();
         $liste_admin = array('connect', 'deconnect', 'insNews', 'delNews');
 
@@ -30,7 +31,6 @@ class FrontController
                     new ControllerAdmin();
                 }
                 else
-                    global $rep, $vues;
                     require($rep.$vues['connect']);
             }
             else
@@ -38,10 +38,8 @@ class FrontController
         }
         catch (Exception $e)
         {
-            global $rep,$vues;
             $dVueEreur [] = "Erreur exception";
             require($rep.$vues['erreur']);
-
         }
     }
 }
