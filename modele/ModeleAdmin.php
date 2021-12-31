@@ -32,7 +32,7 @@ class ModeleAdmin
         {
             if (password_verify($mdp, $user->getMdp()))
             {
-                $_SESSION['login'] = $user->getMdp();
+                $_SESSION['login'] = $user->getLogin();
                 return $user;
             }
         }

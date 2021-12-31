@@ -16,15 +16,17 @@
                             echo "<li class=\"nav-item\"> <a href=\"../index.php\" class=\"nav-link active\">accueil</a></li>";
                             break;
                         case "blog.php":
+                            var_dump($admin);
+                            if ($admin) {
+                                echo "<li class=\"nav-item\"> <a href=\"../views/connection.php\" class=\"nav-link active\">déconnexion</a></li>";
+                            }
                             echo "<li class=\"nav-item\"> <a href=\"../views/connection.php\" class=\"nav-link active\">connexion</a></li>";
                             break;
                         case "index.php":
                             echo "<li class=\"nav-item\"> <a href=\"./views/connection.php\" class=\"nav-link active\">connexion</a></li>";
                             break;
                     }
-                    ?>
-                <?php
-                    if ($page == "index.php")
+                    if ($page == "index.php" && !isset($_REQUEST['action']))
                     {
                         echo '<li class=\"nav-item\">
                                 <form  action="#" method="get">
@@ -42,7 +44,7 @@
                 </li>
                     <label class="header-label">nb commentaires blog : <?php echo "$nbComments" ?> </label>
                     <label class="header-label">nb commenaires client : </label>
-                    <label class="header-label"> connecté :  </label>
+                    <label class="header-label"> connecté : <?php echo $_SESSION['login'] ?> </label>
 			</ul>
 		</div>
         </div>

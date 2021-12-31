@@ -53,6 +53,11 @@ class Modele
         return $this->gateNews->findNewsById($id);
     }
 
+    public function findComments($id)
+    {
+        return $this->gateComment->findByNews($id);
+    }
+
     //Comments
     public function insertComment(int $idNews, Comment $comm) : bool
     {

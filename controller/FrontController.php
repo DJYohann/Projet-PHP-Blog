@@ -26,7 +26,7 @@ class FrontController
 
             if (in_array($action, $liste_admin))
             {
-                if ($admin && $action == 'connect')
+                if ($action == 'connect')
                 {
                     new ControllerAdmin();
                 }

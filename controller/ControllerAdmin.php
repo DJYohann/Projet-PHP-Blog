@@ -41,11 +41,10 @@ class ControllerAdmin
         global $rep,$vues;
         if (isset($_POST['user_login']) && isset($_POST['user_mdp']))
         {
-            var_dump($_POST['user_login']);
-            var_dump($_POST['user_mdp']);
             $mdl = new ModeleAdmin();
             $mdl->connection($_POST['user_login'], $_POST['user_mdp']);
-            require($rep.$vues['blog']);
+            $_REQUEST['action'] = NULL;
+            new ControllerUtil();
         }
     }
 

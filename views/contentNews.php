@@ -21,7 +21,14 @@
             ?>
         </div>
     <br><br>
-    <h3>Commentaire</h3><br><br>
+    <h3> Commentaires </h3>
+    <?php
+        foreach ($comments as $comment) {
+            echo '<p>'.$comment->getContent().'<p>';
+        }
+    ?>
+    <br><br>
+    <h3>Ajouter commentaire</h3><br><br>
     <form action="index.php?action=ajout-comment" method="post" class="d-flex flex-column form">
         <div class="form-group">
             <div class="w-100">
