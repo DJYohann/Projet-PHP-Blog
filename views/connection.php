@@ -12,33 +12,53 @@
 
 
 <body>
-<?php include('header.php');?>
-<main class="d-flex align-items-center">
-    <div class="w-100 d-flex flex-column align-items-center">
-        <div class="conteneur w-50 d-flex flex-column align-items-center">
-            <h1>Connexion</h1><br><br>
-            <form action="../index.php?action=connect" method="post" class="d-flex flex-column form">
-                <div class="form-group">
-                    <div class="w-100">
-                        <label for="login">Login :</label>
-                        <input class="form-control" type="text" id="login" name="user_login" required>
-                        <label for="mdp">Mot de passe :</label>
-                        <input class="form-control" type="password" id="mdp" name="user_mdp" required>
-                    </div>
-                    <input class="btn btn-primary btn-sm mt-3" type="submit" value="Connexion" name="valid"/>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container mr-1">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="../index.php" class="nav-link active">accueil</a>
+                        </li>
+                    </ul>
                 </div>
-            </form>
+            </div>
+        </nav>
+    </header>
+
+    <main class="d-flex align-items-center">
+        <div class="w-100 d-flex flex-column align-items-center">
+            <div class="conteneur w-50 d-flex flex-column align-items-center">
+                <h1>Connexion</h1>
+                <br><br>
+                <img width="100px" height="100px" src="images/login.png">
+                <form action="../index.php?action=connect" method="post" class="d-flex flex-column form">
+                    <div class="form-group">
+                        <div class="w-100">
+                            <label for="login">Login :</label>
+                            <input class="form-control" type="text" id="login" name="user_login" required>
+                            <label for="mdp">Mot de passe :</label>
+                            <input class="form-control" type="password" id="mdp" name="user_mdp" required>
+                        </div>
+                        <input class="btn btn-primary btn-sm mt-3" type="submit" value="Connexion" name="valid"/>
+                    </div>
+                </form>
+            </div>
+            <?php
+                if (isset($dVueEreur) && count($dVueEreur)>0)
+                {
+                    echo "<h2> ERREUR !</h2>";
+                    foreach ($dVueEreur as $value)
+                    {
+                        echo $value;
+                    }
+                }
+            ?>
         </div>
-        <?php
-        if (isset($dVueEreur) && count($dVueEreur)>0) {
-            echo "<h2>ERREUR !</h2>";
-            foreach ($dVueEreur as $value){
-                echo $value;
-            }
-        }
-        ?>
-    </div>
-</main>
-<?php include('footer.php');?>
+    </main>
+    <?php include('footer.php');?>
 </body>
 </html>

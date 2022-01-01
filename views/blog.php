@@ -12,21 +12,54 @@
 
 
 <body>
-<?php include('header.php');?>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container mr-1">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="views/connection.php" class="nav-link active">connexion</a>
+                        </li>
+                        <li class=\"nav-item\">
+                            <form  action="#" method="get">
+                                <div class="form-group d-flex mt-2">
+                                    <label class="mt-2 mr-1" for="input">Rechercher (date) : </label>
+                                    <div class="input d-flex">
+                                        <input type="text" class="form-control" id="input">
+                                        <button type="submit" style="background-color: white">ok</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        <label class="header-label">nb commentaires blog : <?php echo "$nbComments" ?> </label>
+                        <label class="header-label">nb commenaires client : </label>
+                        <label class="header-label"> connecté : <?php echo $_SESSION['login'] ?> </label>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 <main>
     <?php
-    if(!(isset($nbMaxNews ) && $nbMaxNews > 0)){
+    if(!(isset($nbMaxNews ) && $nbMaxNews > 0))
+    {
         $nbMaxNews = 1;
     }
-    if(!(isset($page) && $page > 0)){
+    if(!(isset($page) && $page > 0))
+    {
         $page = 1;
     }
     ?>
     <div class="d-flex flex-wrap test mt-5 justify-content-between">
     <?php
-        if(isset($TNews)){
-            foreach ($TNews as $News){
+        if(isset($TNews))
+        {
+            foreach ($TNews as $News)
+            {
                 echo '<div class="news">
                         <h6>'.$News->getDate().' : </h6><br>
                         <a href="index.php?action=contentNews&id='.$News->getId().'">'.$News->getTitle().' 
@@ -38,7 +71,8 @@
     </div>
     <?php
     $pageMax = ceil($nbNews/$nbMaxNews);
-    if ($page > $pageMax) {
+    if ($page > $pageMax)
+    {
         $page = $pageMax;
     }
 
@@ -47,14 +81,10 @@
     ?>
 
     <div class="pages d-flex justify-content-center mt-5">
-        <?php
-
-       echo "<div> <a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page <a href=\"index.php?page=".$pageIncremente."\">&gt;</a> </div>";
-
-       ?>
-
+    <?php
+        echo "<div> <a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page <a href=\"index.php?page=".$pageIncremente."\">&gt;</a> </div>";
+        ?>
     </div>
-
 </main>
 <?php include('footer.php');?>
 </body>

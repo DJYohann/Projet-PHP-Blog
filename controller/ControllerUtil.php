@@ -93,7 +93,7 @@ class ControllerUtil
             $id = Nettoyage::nettoyerChaine($_GET['id']);
             $mdl = new Modele();
             $news = $mdl->findNewsById($id);
-            $comments = $mdl->findComments($id);
+            //$comments = $mdl->findComments($id);
             $nbComments = $mdl->getNbComments();
             require($rep.$vues['content-news']);
         }
