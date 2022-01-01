@@ -20,15 +20,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="views/connection.php" class="nav-link active">connexion</a>
-                        </li>
+                        <?php
+                            var_dump($admin);
+                            if (!$admin)
+                            {
+                                echo '<li class="nav-item"> <a href="views/connection.php" class="nav-link active">connexion</a> </li>';
+                            }
+                            else
+                            {
+                                echo '<li class="nav-item"> <a href="index.php?action=deconnect" class="nav-link active">deconnexion</a> </li>';
+                                echo '<li class="nav-item"> <a href="index.php?action=add-news" class="nav-link active">ajouter</a> </li>';
+                            }
+                        ?>
                         <li class=\"nav-item\">
                             <form  action="#" method="get">
                                 <div class="form-group d-flex mt-2">
                                     <label class="mt-2 mr-1" for="input">Rechercher (date) : </label>
                                     <div class="input d-flex">
-                                        <input type="text" class="form-control" id="input">
+                                        <input type="date" class="form-control" id="input">
                                         <button type="submit" style="background-color: white">ok</button>
                                     </div>
                                 </div>
@@ -36,7 +45,12 @@
                         </li>
                         <label class="header-label">nb commentaires blog : <?php echo "$nbComments" ?> </label>
                         <label class="header-label">nb commenaires client : </label>
-                        <label class="header-label"> connecté : <?php echo $_SESSION['login'] ?> </label>
+                        <?php
+                        if ($admin)
+                        {
+                            echo '<label class="header-label"> connecté : '.$_SESSION['login'].'</label>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

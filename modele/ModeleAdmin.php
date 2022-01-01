@@ -33,6 +33,7 @@ class ModeleAdmin
             if (password_verify($mdp, $user->getMdp()))
             {
                 $_SESSION['login'] = $user->getLogin();
+                $_SESSION['role'] =  'admin';
                 return $user;
             }
         }
@@ -54,7 +55,7 @@ class ModeleAdmin
      */
     public function isAdmin()
     {
-        if (isset($_SESSION['login']))
+        if (isset($_SESSION['login']) && isset($_SESSION['role']))
             return true;
         return false;
     }

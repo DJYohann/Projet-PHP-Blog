@@ -24,14 +24,8 @@ class FrontController
             else
                 $action = $_REQUEST['action'];
 
-            if (in_array($action, $liste_admin))
-            {
-                if ($action == 'connect')
-                {
-                    new ControllerAdmin();
-                }
-                else
-                    require($rep.$vues['connect']);
+            if (in_array($action, $liste_admin)) {
+                new ControllerAdmin();
             }
             else
                 new ControllerUtil();

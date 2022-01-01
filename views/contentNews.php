@@ -22,6 +22,9 @@
                         <li class="nav-item">
                             <?php echo '<h3>'.$news->getTitle().'</h3>' ?>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active">effacer</a>
+                        </li>
                     </ul>
                 </div>
             </div>

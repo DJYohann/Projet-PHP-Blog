@@ -21,6 +21,9 @@ class ControllerAdmin
                 case 'connect' :
                     $this->connect();
                     break;
+                case 'deconnect' :
+                    $this->deconnect();
+                    break;
                 default:
                     global $rep,$vues;
                     $dVueEreur [] = "Erreur d'appel php";
@@ -38,7 +41,6 @@ class ControllerAdmin
 
     public function connect()
     {
-        global $rep,$vues;
         if (isset($_POST['user_login']) && isset($_POST['user_mdp']))
         {
             $mdl = new ModeleAdmin();
@@ -46,6 +48,14 @@ class ControllerAdmin
             $_REQUEST['action'] = NULL;
             new ControllerUtil();
         }
+    }
+
+    public function deconneect()
+    {
+        $mdl = new ModeleAdmin();
+        $mdl->deconnection();
+        $_REQUEST['action'] = NULL;
+        new ControllerUtil();
     }
 
     public function ajouterNews()

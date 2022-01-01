@@ -92,7 +92,10 @@ class ControllerUtil
         if (isset($_GET['id'])){
             $id = Nettoyage::nettoyerChaine($_GET['id']);
             $mdl = new Modele();
+            $mdlAdmin= new ModeleAdmin();
+
             $news = $mdl->findNewsById($id);
+            $admin = $mdlAdmin->isAdmin();
             //$comments = $mdl->findComments($id);
             $nbComments = $mdl->getNbComments();
             require($rep.$vues['content-news']);
