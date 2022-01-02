@@ -10,6 +10,9 @@ class ControllerAdmin
      */
     public function __construct()
     {
+        global $rep,$vues;
+        session_start();
+
         try
         {
             if (!isset($_REQUEST['action']))
@@ -25,7 +28,6 @@ class ControllerAdmin
                     $this->deconnect();
                     break;
                 default:
-                    global $rep,$vues;
                     $dVueEreur [] = "Erreur d'appel php";
                     require($rep.$vues['erreur']);
                     break;
@@ -41,19 +43,24 @@ class ControllerAdmin
 
     public function connect()
     {
-        if (isset($_POST['user_login']) && isset($_POST['user_mdp']))
-        {
-            $mdl = new ModeleAdmin();
-            $mdl->connection($_POST['user_login'], $_POST['user_mdp']);
-            $_REQUEST['action'] = NULL;
-            new ControllerUtil();
-        }
+        $login = $_POST['user_login'];
+        $mdp = $_POST['user_mdp'];
+        $mdl = new ModeleAdmin();
+
+        $login = Nettoyage::nettoyerChaine($login);
+        $mdp = Nettoyage::nettoyerChaine($mdp);
+        $mdl->connection($login, $mdp);
+
+        $_REQUEST['action'] = NULL;
+        new ControllerUtil();
     }
 
-    public function deconneect()
+    public function deconnect()
     {
         $mdl = new ModeleAdmin();
+
         $mdl->deconnection();
+
         $_REQUEST['action'] = NULL;
         new ControllerUtil();
     }

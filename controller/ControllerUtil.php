@@ -9,6 +9,8 @@ class ControllerUtil
     public function __construct()
     {
         global $rep,$vues;
+        session_start();
+
         try {
             if (!isset($_REQUEST['action']))
                 $action = NULL;
@@ -72,17 +74,23 @@ class ControllerUtil
     public function afficherNews()
     {
         global $rep,$vues, $maxNews, $nbComments;
+        $mdl = new Modele();
+        $mdlAdmin = new ModeleAdmin();
 
-        if(isset($_GET['page'])){
+        if(isset($_GET['page']))
+        {
             $page = Nettoyage::nettoyerChaine($_GET['page']);
         }
-        else{
+        else
+        {
             $page = 1;
         }
-        $mdl = new Modele();
+
         $nbNews = $mdl->getNbNews();
         $nbComments = $mdl->getNbComments();
         $TNews = $mdl->findByPage($page,$maxNews);
+        $admin = $mdlAdmin->isAdmin();
+
         require($rep.$vues['blog']);
     }
 

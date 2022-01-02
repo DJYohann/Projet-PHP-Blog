@@ -21,7 +21,6 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <?php
-                            var_dump($admin);
                             if (!$admin)
                             {
                                 echo '<li class="nav-item"> <a href="views/connection.php" class="nav-link active">connexion</a> </li>';
