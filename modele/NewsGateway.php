@@ -8,14 +8,14 @@ class NewsGateway{
         $this->con = $con;
     }
 
-    public function insertNews(News $news) : bool
+    public function insertNews(string $date, string $title, string $author, string $content) : bool
     {
         $query = 'INSERT INTO TNews(date,title,content) VALUES(:date,:title,:author,:content)';
         return $this->con->executeQuery($query,array(
-            ':date' => array($news->getDate(),PDO::PARAM_STR),
-            ':title' => array($news->getTitle(),PDO::PARAM_STR),
-            ':author' => array($news->getAuthor(),PDO::PARAM_STR),
-            ':content' => array($news->getContent(),PDO::PARAM_STR)
+            ':date' => array($date,PDO::PARAM_STR),
+            ':title' => array($title,PDO::PARAM_STR),
+            ':author' => array($author,PDO::PARAM_STR),
+            ':content' => array($content,PDO::PARAM_STR)
         ));
     }
 

@@ -24,9 +24,9 @@ class Modele
      * @param News $news news à ajouter
      * @return bool confirmation d'ajout
      */
-    public function insertNews(News $news) : bool
+    public function insertNews(string $date, string $title, string $author, string $content) : bool
     {
-        return $this->newsGw->insertNews($news);
+        return $this->gateNews->insertNews($date, $title, $author, $content);
     }
 
     /**
@@ -56,6 +56,11 @@ class Modele
     public function findComments($id)
     {
         return $this->gateComment->findByNews($id);
+    }
+
+    public function getNbCommentsByNews($id)
+    {
+        return $this->gateComment->nbCommentsByNews($id);
     }
 
     //Comments

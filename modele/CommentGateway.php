@@ -37,7 +37,7 @@ class CommentGateway {
      */
     public function findByNews(int $idNews) : array
     {
-        $query = 'SELECT * FROM tComments WHERE idNews = :id_news';
+        $query = 'SELECT * FROM tComments WHERE id_news = :id_news';
         $this->con->executeQuery($query, array(
             ':id_news' => array($idNews, PDO::PARAM_INT)
         ));
@@ -57,6 +57,15 @@ class CommentGateway {
     {
         $query = 'SELECT COUNT(*) FROM tComments';
         $this->con->executeQuery($query);
+        return $this->con->getResult()[0][0];
+    }
+
+    public function nbCommentsByNews(int $idNews) : int
+    {
+        $query = 'SELECT COUNT(*) FROM tComments WHERE id_news = :id_news';
+        $this->con->executeQuery($query, array(
+            ':id_news' => array($idNews, PDO::PARAM_INT)
+        ));
         return $this->con->getResult()[0][0];
     }
 }

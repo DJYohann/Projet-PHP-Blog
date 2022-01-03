@@ -22,31 +22,44 @@
                         <li class="nav-item">
                             <?php echo '<h3>'.$news->getTitle().'</h3>' ?>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active">effacer</a>
-                        </li>
+                        <?php
+                            if ($admin)
+                            {
+                                $id = $news->getId();
+                                echo "<li class=\"nav-item\"> <a href=\"index.php?action=del-news&id=$id\" class=\"nav-link active\">effacer</a></li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <br><br>
     <main class="d-flex flex-column align-items-center justify-content-center">
-        <br><br>
             <div class="conteneur-news mx-5">
                 <?php
                     echo '<div class="d-flex justify-content-center"></div><br><br>
                           <div>'.$news->getContent().'</div>';
                 ?>
             </div>
-        <br><br>
+    </main>
+    <br><br>
+    <main class="d-flex flex-column align-items-left justify-content-center">
         <h3> Commentaires </h3>
-        <?php /*
+        <?php
+             if (true)
+             {
+                 echo '<p> Aucun commentaire pour cette news </p>';
+             }
             foreach ($comments as $comment) {
                 echo '<p>'.$comment->getContent().'<p>';
-            }*/
+            }
         ?>
         <br><br>
-        <h3>Ajouter commentaire</h3><br><br>
+    </main>
+    <main class="d-flex flex-column align-items-center justify-content-center">
+        <h3>Ajouter commentaire</h3>
+        <br><br>
         <form action="index.php?action=ajout-comment" method="post" class="d-flex flex-column form">
             <div class="form-group">
                 <div class="w-100">

@@ -13,7 +13,7 @@ class FrontController
     {
         global $rep, $vues;
         $mdl = new ModeleAdmin();
-        $liste_admin = array('connect', 'deconnect', 'insNews', 'delNews');
+        $liste_admin = array('connect', 'deconnect', 'add-news', 'del-news');
 
         try
         {

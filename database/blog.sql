@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 16 déc. 2021 à 14:36
+-- Généré le : lun. 03 jan. 2022 à 13:51
 -- Version du serveur :  5.7.34
 -- Version de PHP : 7.4.21
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `blog`
 --
+CREATE DATABASE IF NOT EXISTS `blog` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `blog`;
 
 -- --------------------------------------------------------
 
@@ -32,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `tadmin` (
   `login` varchar(50) NOT NULL,
   `mdp` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tadmin`
@@ -40,7 +42,8 @@ CREATE TABLE IF NOT EXISTS `tadmin` (
 
 INSERT INTO `tadmin` (`id`, `login`, `mdp`) VALUES
 (1, 'ugvignon', '$2y$10$HgzllNIYqrp8Jwm7LXctW.Rm1Ub.bQNE57EjaqEr3qc5Q.dAPWABm'),
-(2, 'yobreuil', '$2y$10$1o6aRR9Fxj5MPN0pmuv3ZebEThTkdEs7vU7Q.xF4DMnBZgpTHJLZi');
+(2, 'yobreuil', '$2y$10$1o6aRR9Fxj5MPN0pmuv3ZebEThTkdEs7vU7Q.xF4DMnBZgpTHJLZi'),
+(3, 'sesalva', '$2y$10$49egE/El6PUsvnBWK7qiyu8zpyptow5wpcH8OFCFMUp6tNl3uzoyO');
 
 -- --------------------------------------------------------
 

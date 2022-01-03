@@ -28,7 +28,7 @@
                             else
                             {
                                 echo '<li class="nav-item"> <a href="index.php?action=deconnect" class="nav-link active">deconnexion</a> </li>';
-                                echo '<li class="nav-item"> <a href="index.php?action=add-news" class="nav-link active">ajouter</a> </li>';
+                                echo '<li class="nav-item"> <a href="views/creation.php" class="nav-link active">ajouter</a> </li>';
                             }
                         ?>
                         <li class=\"nav-item\">

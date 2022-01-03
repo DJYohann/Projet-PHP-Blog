@@ -27,6 +27,12 @@ class ControllerAdmin
                 case 'deconnect' :
                     $this->deconnect();
                     break;
+                case 'add-news' :
+                    $this->addNews();
+                    break;
+                case 'del-news' :
+                    $this->delNews();
+                    break;
                 default:
                     $dVueEreur [] = "Erreur d'appel php";
                     require($rep.$vues['erreur']);
@@ -65,13 +71,31 @@ class ControllerAdmin
         new ControllerUtil();
     }
 
-    public function ajouterNews()
+    public function addNews()
     {
-        $mdl = new Modele();
+       $title = $_POST['news_title'];
+       $date =  $_POST['news_date'];
+       $content =  $_POST['news_content'];
+
+       $title = Nettoyage::nettoyerChaine($title);
+       $date = Nettoyage::nettoyerChaine($date);
+
+       $mdl = new Modele();
+       $mdl->insertNews($date, $title, $_SESSION['login'], $content);
+
+        $_REQUEST['action'] = NULL;
+        new ControllerUtil();
     }
 
-    public function supprimerNews()
+    public function delNews()
     {
+        $id = $_GET['id'];
+        $mdl = new Modele();
 
+        $news = $mdl->findNewsById($id);
+        $mdl->deleteNews($news);
+
+        $_REQUEST['action'] = NULL;
+        new ControllerUtil();
     }
 }
