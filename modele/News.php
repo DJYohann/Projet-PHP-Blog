@@ -41,7 +41,7 @@ class News {
      * @return string
      */
     public function getTitle(): string {
-        return mb_convert_encoding($this->title, "UTF-8", "Windows-1252");
+        return mb_convert_encoding($this->title, "UTF-8");
     }
 
     /**
@@ -56,6 +56,6 @@ class News {
      * @return string
      */
     public function getContent(): string {
-        return mb_convert_encoding($this->content, "UTF-8", "Windows-1252");
+        return mb_convert_encoding($this->content, "UTF-8");
     }
 }

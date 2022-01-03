@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : lun. 03 jan. 2022 à 14:01
--- Version du serveur :  5.7.31
--- Version de PHP : 7.4.9
+-- Hôte : localhost:8889
+-- Généré le : lun. 03 jan. 2022 à 14:13
+-- Version du serveur :  5.7.34
+-- Version de PHP : 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,13 +27,12 @@ SET time_zone = "+00:00";
 -- Structure de la table `tadmin`
 --
 
-DROP TABLE IF EXISTS `tadmin`;
 CREATE TABLE IF NOT EXISTS `tadmin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
   `mdp` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tadmin`
@@ -41,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `tadmin` (
 
 INSERT INTO `tadmin` (`id`, `login`, `mdp`) VALUES
 (1, 'ugvignon', '$2y$10$HgzllNIYqrp8Jwm7LXctW.Rm1Ub.bQNE57EjaqEr3qc5Q.dAPWABm'),
-(2, 'yobreuil', '$2y$10$1o6aRR9Fxj5MPN0pmuv3ZebEThTkdEs7vU7Q.xF4DMnBZgpTHJLZi');
+(2, 'yobreuil', '$2y$10$1o6aRR9Fxj5MPN0pmuv3ZebEThTkdEs7vU7Q.xF4DMnBZgpTHJLZi'),
+(3, 'sesalva', '$2y$10$49egE/El6PUsvnBWK7qiyu8zpyptow5wpcH8OFCFMUp6tNl3uzoyO');
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,6 @@ INSERT INTO `tadmin` (`id`, `login`, `mdp`) VALUES
 -- Structure de la table `tcomments`
 --
 
-DROP TABLE IF EXISTS `tcomments`;
 CREATE TABLE IF NOT EXISTS `tcomments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_news` int(11) NOT NULL,
@@ -65,7 +64,6 @@ CREATE TABLE IF NOT EXISTS `tcomments` (
 -- Structure de la table `tnews`
 --
 
-DROP TABLE IF EXISTS `tnews`;
 CREATE TABLE IF NOT EXISTS `tnews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_creation` date NOT NULL,
