@@ -43,7 +43,14 @@
                             </form>
                         </li>
                         <label class="header-label">nb commentaires blog : <?php echo "$nbComments" ?> </label>
-                        <label class="header-label">nb commenaires client : </label>
+                        <label class="header-label">nb commenaires client : <?php
+                            if(isset($_COOKIE['cpt'])){
+                                echo Nettoyage::nettoyerInt($_COOKIE['cpt']);
+                            }
+                            else
+                                echo 0;
+
+                            ?></label>
                         <?php
                         if ($admin)
                         {
