@@ -43,7 +43,7 @@
                             </form>
                         </li>
                         <label class="header-label">nb commentaires blog : <?php echo "$nbComments" ?> </label>
-                        <label class="header-label">nb commenaires client : </label>
+                        <label class="header-label">nb commentaires client : </label>
                         <?php
                         if ($admin)
                         {

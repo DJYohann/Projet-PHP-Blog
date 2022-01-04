@@ -89,11 +89,10 @@ class ControllerAdmin
 
     public function delNews()
     {
-        $id = $_GET['id'];
+        $id = Nettoyage::nettoyerChaine($_GET['id']);
         $mdl = new Modele();
 
-        $news = $mdl->findNewsById($id);
-        $mdl->deleteNews($news);
+        $mdl->deleteNews($id);
 
         $_REQUEST['action'] = NULL;
         new ControllerUtil();
