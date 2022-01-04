@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Comment.php';
-
 /**
  * Passerelle entre la classe Comment et la base de données
  */
@@ -17,7 +15,7 @@ class CommentGateway {
     }
 
     /**
-     * @param int $idNews news où ajouter le commentaire
+     * @param int $idNews id de la news où ajouter le commentaire
      * @param Comment $comm commentaire à ajouter à la news
      * @return bool confirmation de l'insertion
      */

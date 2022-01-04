@@ -11,7 +11,6 @@ class ControllerAdmin
     public function __construct()
     {
         global $rep,$vues;
-        session_start();
 
         try
         {

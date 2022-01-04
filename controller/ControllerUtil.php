@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Controlleur de l'utilisateur
  */
 class ControllerUtil
 {
@@ -10,10 +10,8 @@ class ControllerUtil
     {
         global $rep,$vues;
 
-        if(!isset($_SESSION))
-            session_start();
-
-        try {
+        try
+        {
             if (!isset($_REQUEST['action']))
                 $action = NULL;
             else
@@ -42,7 +40,8 @@ class ControllerUtil
                     require($rep.$vues['erreur']);
                     break;
             }
-        }catch (PDOException $e){
+        }
+        catch (PDOException $e){
             $dVueEreur [] = "Erreur exception";
             require($rep.$vues['erreur']);
         }
@@ -50,14 +49,16 @@ class ControllerUtil
 
     public function rechercherNews()
     {
-        global $rep,$vues, $nbComments;
+        global $rep,$vues;
         $mdl = new Modele();
         $mdlAdmin = new ModeleAdmin();
 
-        if(isset($_POST['search_date'])){
+        if(isset($_POST['search_date']))
+        {
             $date = Nettoyage::nettoyerChaine($_POST['search_date']);
         }
         $TNews = $mdl->findByDate($date);
+
         require ($rep.$vues['search']);
     }
 
@@ -65,8 +66,7 @@ class ControllerUtil
     {
         global $rep,$vues;
         $mdl = new Modele();
-
-        $id = $_GET['id'];
+        $id = Nettoyage::nettoyerChaine($_GET['id']);
 
         if (isset($_POST['user_pseudo']) && isset($_POST['user_comment']))
         {

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * News du blog
+ */
 class News {
     private int $id;
     private string $date;
@@ -8,11 +11,11 @@ class News {
     private string $content;
 
     /**
-     * @param int $id
-     * @param string $date
-     * @param string $title
-     * @param string $author
-     * @param string $content
+     * @param int $id id de la news
+     * @param string $date date de la news
+     * @param string $title titre de la news
+     * @param string $author auteur de la news
+     * @param string $content contenu de la news
      */
     public function __construct(int $id, string $date, string $title, string $author, string $content)
     {
@@ -24,28 +27,28 @@ class News {
     }
 
     /**
-     * @return int
+     * @return int id de la news
      */
     public function getId(): int {
         return $this->id;
     }
 
     /**
-     * @return string
+     * @return string date de la news
      */
     public function getDate(): string {
         return $this->date;
     }
 
     /**
-     * @return string
+     * @return string titre de la news
      */
     public function getTitle(): string {
         return mb_convert_encoding($this->title, "UTF-8");
     }
 
     /**
-     * @return string
+     * @return string auteur de la news
      */
     public function getAuthor(): string
     {
@@ -53,7 +56,7 @@ class News {
     }
 
     /**
-     * @return string
+     * @return string contenu de la news
      */
     public function getContent(): string {
         return mb_convert_encoding($this->content, "UTF-8");

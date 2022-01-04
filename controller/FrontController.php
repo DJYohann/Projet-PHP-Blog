@@ -1,17 +1,20 @@
 <?php
 
 /**
- * FrontController
+ * Controlleur permettant de sélectionner le bon controlleur selon l'action
  */
 class FrontController
 {
 
-    /**
-     *
-     */
     public function __construct()
     {
         global $rep, $vues;
+
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
+
         $mdl = new ModeleAdmin();
         $liste_admin = array('connect', 'deconnect', 'add-news', 'del-news');
 
@@ -24,7 +27,8 @@ class FrontController
             else
                 $action = $_REQUEST['action'];
 
-            if (in_array($action, $liste_admin)) {
+            if (in_array($action, $liste_admin))
+            {
                 new ControllerAdmin();
             }
             else
