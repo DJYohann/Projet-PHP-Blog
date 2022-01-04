@@ -21,11 +21,11 @@ class CommentGateway {
      * @param Comment $comm commentaire à ajouter à la news
      * @return bool confirmation de l'insertion
      */
-    public function insert(int $idNews, Comment $comm) : bool
+    public function insert(string $idNews, Comment $comm) : bool
     {
-        $query = 'INSERT INTO tComments VALUES(:id_news,:pseudo,:content)';
+        $query = 'INSERT INTO tComments (id_news, pseudo, content) VALUES(:id_news,:pseudo,:content)';
         return $this->con->executeQuery($query, array(
-            ':id_news' => array($idNews, PDO::PARAM_INT),
+            ':id_news' => array($idNews, PDO::PARAM_STR),
             ':pseudo' => array($comm->getPseudo(), PDO::PARAM_STR),
             ':content' => array($comm->getContent(), PDO::PARAM_STR)
         ));
@@ -39,7 +39,7 @@ class CommentGateway {
     {
         $query = 'SELECT * FROM tComments WHERE id_news = :id_news';
         $this->con->executeQuery($query, array(
-            ':id_news' => array($idNews, PDO::PARAM_INT)
+            ':id_news' => array($idNews, PDO::PARAM_STR)
         ));
 
         $results = $this->con->getResult();

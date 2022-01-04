@@ -64,7 +64,7 @@ class ControllerUtil
 
         $id = $_GET['id'];
 
-        if(isset($_POST['user_pseudo']) && isset($_POST['user_comment']))
+        if (isset($_POST['user_pseudo']) && isset($_POST['user_comment']))
         {
             $pseudo = Nettoyage::nettoyerChaine($_POST['user_pseudo']);
             $message = Nettoyage::nettoyerChaine($_POST['user_comment']);
