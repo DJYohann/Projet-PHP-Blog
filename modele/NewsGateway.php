@@ -34,11 +34,11 @@ class NewsGateway{
         return $tabNews;
     }
 
-    public function findByDate(date $date) : array
+    public function findByDate(string $date) : array
     {
-        $query = 'SELECT * FROM tnews WHERE date = :date';
+        $query = 'SELECT * FROM tnews WHERE date_creation = STR_TO_DATE(:date,"%Y-%m-%d")';
         $this->con->executeQuery($query,array(
-            ':date' => array($date,PDO::PARAM_INT)
+            ':date' => array($date,PDO::PARAM_STR)
         ));
         foreach($this->con->getResult() as $news){
             $tabNews[] = new News($news['id'],$news['date_creation'],$news['title'],$news['author'],$news['content']);
