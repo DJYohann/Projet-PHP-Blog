@@ -1,0 +1,11 @@
+.big-conteneur-comments{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 50%;
+    height: 20%;
+}
+
+.conteneur-comment{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 300px;
+}

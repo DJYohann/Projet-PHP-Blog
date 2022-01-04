@@ -7,6 +7,7 @@
     <title> <?php echo $news->getTitle() ?> </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" media="screen">
     <link href="views/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="views/css/content.css" type="text/css" rel="stylesheet" media="screen"/>
 </head>
 
 
@@ -48,7 +49,9 @@
     </main>
     <br><br>
     <main class="d-flex flex-column align-items-left justify-content-center">
-        <h3> Commentaires </h3>
+        <div class="w-100 d-flex flex-column align-items-center">
+            <div class="big-conteneur-comments">
+        <h3 style="text-decoration: underline; text-align: center"> Commentaires </h3>
         <?php
              if (!isset($comments))
              {
@@ -56,12 +59,16 @@
              }
              else
              {
+                 echo "<div class=\"conteneur-comment\">";
                  foreach ($comments as $comment) {
                      echo '<b>'.$comment->getPseudo().'</b><br>';
                      echo '<p>'.$comment->getContent().'<p><br>';
                  }
+                 echo "</div>";
              }
         ?>
+            </div>
+        </div>
         <br><br>
     </main>
     <main class="d-flex flex-column align-items-center justify-content-center">

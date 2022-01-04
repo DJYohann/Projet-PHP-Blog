@@ -103,7 +103,11 @@
     <div class="pages d-flex justify-content-center mt-5">
     <?php
     if($page == 1){
-        echo "<div> $page </div>";
+        if($pageMax > 1) {
+            echo "<div> $page <a href=\"index.php?page=" . $pageIncremente . "\">&gt;</a> </div>";
+        }
+        else
+            echo "<div> $page </div>";
     }
     elseif($page == $pageMax){
         echo "<div> <a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page </div>";
