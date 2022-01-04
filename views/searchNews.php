@@ -34,13 +34,19 @@
         <?php
         if(isset($TNews))
         {
-            foreach ($TNews as $News)
-            {
-                echo '<div class="news">
-                        <h6>'.$News->getDate().' : </h6><br>
-                        <a href="index.php?action=contentNews&id='.$News->getId().'">'.$News->getTitle().' 
+            if(count($TNews) > 0) {
+                foreach ($TNews as $News) {
+                    echo '<div class="news">
+                        <h6>' . $News->getDate() . ' : </h6><br>
+                        <a href="index.php?action=contentNews&id=' . $News->getId() . '">' . $News->getTitle() . ' 
                         </a>
                       </div>';
+                }
+            }
+            else{
+                echo "<div class='w-100 d-flex justify-content-center'>
+                        <h1> Aucune News </h1>
+                      </div>";
             }
         }
         ?>

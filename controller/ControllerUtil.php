@@ -84,7 +84,7 @@ class ControllerUtil
 
     public function afficherNews()
     {
-        global $rep,$vues, $maxNews, $nbComments;
+        global $rep,$vues, $nbMaxNews, $nbComments;
         $mdl = new Modele();
         $mdlAdmin = new ModeleAdmin();
 
@@ -99,7 +99,7 @@ class ControllerUtil
 
         $nbNews = $mdl->getNbNews();
         $nbComments = $mdl->getNbComments();
-        $TNews = $mdl->findByPage($page,$maxNews);
+        $TNews = $mdl->findByPage($page,$nbMaxNews);
         $admin = $mdlAdmin->isAdmin();
 
         require($rep.$vues['blog']);
