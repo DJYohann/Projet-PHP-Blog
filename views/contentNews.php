@@ -49,14 +49,15 @@
         <?php
              if (true)
              {
-                 echo '<p> Aucun commentaire pour cette news </p>';
+                 foreach ($comments as $comment) {
+                     echo '<b>'.$comment->getPseudo().'</b><br>';
+                     echo '<p>'.$comment->getContent().'<p><br>';
+                 }
              }
              else
              {
-                 foreach ($comments as $comment) {
-                     echo '<p>'.$comment->getContent().'<p>';
+                 echo '<p> Aucun commentaire pour cette news </p>';
              }
-            }
         ?>
         <br><br>
     </main>

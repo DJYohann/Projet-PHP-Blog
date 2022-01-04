@@ -116,7 +116,7 @@ class ControllerUtil
 
             $news = $mdl->findNewsById($id);
             $admin = $mdlAdmin->isAdmin();
-            //$comments = $mdl->findComments($id);
+            $comments = $mdl->findComments($id);
             //$nbComments = $mdl->getNbCommentsByNews($id);
             require($rep.$vues['content-news']);
         }
