@@ -63,7 +63,10 @@
     <main class="d-flex flex-column align-items-center justify-content-center">
         <h3>Ajouter commentaire</h3>
         <br><br>
-        <form action="index.php?action=ajout-comment" method="post" class="d-flex flex-column form">
+        <?php
+            $id = $news->getId();
+            echo "<form action=\"index.php?action=add-comment&id=$id\" method=\"post\" class=\"d-flex flex-column form\">"
+            ?>
             <div class="form-group">
                 <div class="w-100">
                     <label for="pseudo">Pseudo :</label>

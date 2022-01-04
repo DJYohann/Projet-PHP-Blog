@@ -35,7 +35,7 @@ class Modele
      */
     public function deleteNews(News $news) : bool
     {
-        return $this->newsGw->deleteNews($news);
+        return $this->gateNews->deleteNews($news);
     }
 
     public function getNbNews() : int

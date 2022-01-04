@@ -23,7 +23,7 @@ class ControllerUtil
                     $this->rechercherNews();
                     break;
 
-                case 'commentaire':
+                case 'add-comment':
                     $this->ajoutCommentaire();
                     break;
 
@@ -46,25 +46,34 @@ class ControllerUtil
         }
     }
 
-    public function rechercherNews(){
+    public function rechercherNews()
+    {
         global $rep,$vues, $nbComments;
         $mdl = new Modele();
+
         $TNews = $mdl->findByDate();
         $nbComments = $mdl->getNbComments();
+
         require ($rep.$vues['blog']);
     }
 
-    public function ajoutCommentaire(){
+    public function ajoutCommentaire()
+    {
         global $rep,$vues;
-        if(isset($_GET['id']) && isset($_POST['pseudo']) && isset($_POST['message'])){
-            $id = Nettoyage::nettoyerChaine($_GET['id']);
-            $pseudo = Nettoyage::nettoyerChaine($_POST['pseudo']);
-            $message = Nettoyage::nettoyerChaine($_POST['message']);
-            $mdl = new Modele();
+        $mdl = new Modele();
+
+        $id = $_GET['id'];
+
+        if(isset($_POST['user_pseudo']) && isset($_POST['user_comment']))
+        {
+            $pseudo = Nettoyage::nettoyerChaine($_POST['user_pseudo']);
+            $message = Nettoyage::nettoyerChaine($_POST['user_comment']);
+
             $mdl->insertComment($id, new Comment($pseudo,$message));
             $this->afficherNews();
         }
-        else{
+        else
+        {
             $dVueEreur [] = "veuillez renseigner le pseudo ou le message"; //utilisateur malveillant qui ne passe pas par le formulaire
             require($rep.$vues['erreur']);
         }
