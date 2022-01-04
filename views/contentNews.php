@@ -47,16 +47,16 @@
     <main class="d-flex flex-column align-items-left justify-content-center">
         <h3> Commentaires </h3>
         <?php
-             if (true)
+             if ($nbComments == 0)
+             {
+                 echo '<p> Aucun commentaire pour cette news </p>';
+             }
+             else
              {
                  foreach ($comments as $comment) {
                      echo '<b>'.$comment->getPseudo().'</b><br>';
                      echo '<p>'.$comment->getContent().'<p><br>';
                  }
-             }
-             else
-             {
-                 echo '<p> Aucun commentaire pour cette news </p>';
              }
         ?>
         <br><br>

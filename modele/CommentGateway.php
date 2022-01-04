@@ -60,11 +60,11 @@ class CommentGateway {
         return $this->con->getResult()[0][0];
     }
 
-    public function nbCommentsByNews(int $idNews) : int
+    public function nbCommentsByNews(string $idNews) : int
     {
         $query = 'SELECT COUNT(*) FROM tComments WHERE id_news = :id_news';
         $this->con->executeQuery($query, array(
-            ':id_news' => array($idNews, PDO::PARAM_INT)
+            ':id_news' => array($idNews, PDO::PARAM_STR)
         ));
         return $this->con->getResult()[0][0];
     }

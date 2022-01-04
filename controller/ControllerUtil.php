@@ -107,7 +107,8 @@ class ControllerUtil
 
     public function afficherUneNews()
     {
-        global $rep,$vues, $nbComments;
+        global $rep,$vues;
+
         if (isset($_GET['id']))
         {
             $id = Nettoyage::nettoyerChaine($_GET['id']);
@@ -117,7 +118,8 @@ class ControllerUtil
             $news = $mdl->findNewsById($id);
             $admin = $mdlAdmin->isAdmin();
             $comments = $mdl->findComments($id);
-            //$nbComments = $mdl->getNbCommentsByNews($id);
+            $nbComments = $mdl->getNbCommentsByNews($id);
+
             require($rep.$vues['content-news']);
         }
         else

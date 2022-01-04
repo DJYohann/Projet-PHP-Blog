@@ -13,7 +13,6 @@ $con = new Connection($dsn, $login, $mdp);
 
 // News
 $maxNews = 1;
-$nbComments = 0;
 
 // Views
 $vues['erreur'] = 'views/erreur.php';
