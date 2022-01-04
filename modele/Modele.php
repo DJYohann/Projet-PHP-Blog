@@ -15,7 +15,7 @@ class Modele
         $this->gateComment = new CommentGateway($con);
     }
     //News
-    public function findByDate(date $date) : array
+    public function findByDate(string $date) : array
     {
        return $this->gateNews->findByDate($date);
     }

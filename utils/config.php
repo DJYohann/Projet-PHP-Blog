@@ -18,7 +18,7 @@ $nbComments = 0;
 // Views
 $vues['erreur'] = 'views/erreur.php';
 $vues['blog'] = 'views/blog.php';
-$vues['comment'] = 'views/commentaires.php';
+$vues['search'] = 'views/searchNews.php';
 $vues['connect'] = 'views/connection.php';
 $vues['content-news'] = 'views/contentNews.php';
 ?>

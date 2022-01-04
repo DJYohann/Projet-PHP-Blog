@@ -50,11 +50,13 @@ class ControllerUtil
     {
         global $rep,$vues, $nbComments;
         $mdl = new Modele();
+        $mdlAdmin = new ModeleAdmin();
 
-        $TNews = $mdl->findByDate();
-        $nbComments = $mdl->getNbComments();
-
-        require ($rep.$vues['blog']);
+        if(isset($_POST['search_date'])){
+            $date = Nettoyage::nettoyerChaine($_POST['search_date']);
+        }
+        $TNews = $mdl->findByDate($date);
+        require ($rep.$vues['search']);
     }
 
     public function ajoutCommentaire()

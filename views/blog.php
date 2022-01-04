@@ -32,11 +32,11 @@
                             }
                         ?>
                         <li class=\"nav-item\">
-                            <form  action="#" method="get">
+                            <form  action="index.php?action=rechercher" method="post">
                                 <div class="form-group d-flex mt-2">
                                     <label class="mt-2 mr-1" for="input">Rechercher (date) : </label>
                                     <div class="input d-flex">
-                                        <input type="date" class="form-control" id="input">
+                                        <input type="date" class="form-control" id="input" name="search_date" required>
                                         <button type="submit" style="background-color: white">ok</button>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
         $page = 1;
     }
     ?>
-    <div class="d-flex flex-wrap test mt-5 justify-content-between">
+    <div class="d-flex flex-wrap conteneur-news mt-5 justify-content-between">
     <?php
         if(isset($TNews))
         {
