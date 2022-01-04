@@ -14,6 +14,13 @@ class NewsGateway{
         $this->con = $con;
     }
 
+    /**
+     * @param string $date date de la news
+     * @param string $title titre de la news
+     * @param string $author auteur de la news
+     * @param string $content contenu de la news
+     * @return bool validation d'insertion
+     */
     public function insertNews(string $date, string $title, string $author, string $content) : bool
     {
         $query = 'INSERT INTO TNews(date_creation,title,author,content) VALUES(STR_TO_DATE(:date,"%Y-%m-%d"),:title,:author,:content)';
@@ -25,6 +32,11 @@ class NewsGateway{
         ));
     }
 
+    /**
+     * @param $page page des news à afficher
+     * @param $nbNews nombre des news
+     * @return array tableau des news à afficher
+     */
     public function findByPage($page,$nbNews) : array
     {
         $page = $page - 1;
@@ -40,6 +52,10 @@ class NewsGateway{
         return $tabNews;
     }
 
+    /**
+     * @param string $date date de la recherche
+     * @return array tableau de news
+     */
     public function findByDate(string $date) : array
     {
         $query = 'SELECT * FROM tnews WHERE date_creation = STR_TO_DATE(:date,"%Y-%m-%d")';
@@ -53,6 +69,10 @@ class NewsGateway{
         return $tabNews;
     }
 
+    /**
+     * @param string $id id de la news à supprimer
+     * @return bool validation de suppression
+     */
     public function deleteNewsById(string $id): bool
     {
         $query = 'DELETE FROM tnews WHERE id = :id';
@@ -61,6 +81,10 @@ class NewsGateway{
         ));
     }
 
+    /**
+     * @param string $id id de la news à rechercher
+     * @return News news recherché
+     */
     public function findNewsById(string $id) : News
     {
         $query = 'SELECT * FROM tnews WHERE id = :id';
@@ -74,6 +98,9 @@ class NewsGateway{
         return $maNews;
     }
 
+    /**
+     * @return int nombre de news
+     */
     public function getNbNews() : int
     {
         $query = 'SELECT count(*) FROM TNews';

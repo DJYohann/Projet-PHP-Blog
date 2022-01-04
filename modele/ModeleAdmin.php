@@ -8,9 +8,6 @@ class ModeleAdmin
     private $adminGw;
     private $newsGw;
 
-    /**
-     *
-     */
     public function __construct()
     {
         global $con;
@@ -19,9 +16,9 @@ class ModeleAdmin
     }
 
     /**
-     * @param string $login
-     * @param string $mdp
-     * @return mixed|null
+     * @param string $login login de l'admin
+     * @param string $mdp mot de passe de l'admin
+     * @return mixed|null admin ou NULL
      */
     public function connection(string $login, string $mdp)
     {
@@ -40,9 +37,6 @@ class ModeleAdmin
         return null;
     }
 
-    /**
-     *
-     */
     public function deconnection()
     {
         session_unset();
@@ -50,9 +44,6 @@ class ModeleAdmin
         $_SESSION = array();
     }
 
-    /**
-     *
-     */
     public function isAdmin()
     {
         if (isset($_SESSION['login']) && isset($_SESSION['role']))

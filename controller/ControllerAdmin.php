@@ -5,9 +5,7 @@
  */
 class ControllerAdmin
 {
-    /**
-     *
-     */
+
     public function __construct()
     {
         global $rep,$vues;
@@ -48,12 +46,10 @@ class ControllerAdmin
 
     public function connect()
     {
-        $login = $_POST['user_login'];
-        $mdp = $_POST['user_mdp'];
+        $login = Nettoyage::nettoyerChaine($_POST['user_login']);
+        $mdp = Nettoyage::nettoyerChaine($_POST['user_mdp']);
         $mdl = new ModeleAdmin();
 
-        $login = Nettoyage::nettoyerChaine($login);
-        $mdp = Nettoyage::nettoyerChaine($mdp);
         $mdl->connection($login, $mdp);
 
         $_REQUEST['action'] = NULL;
@@ -72,12 +68,9 @@ class ControllerAdmin
 
     public function addNews()
     {
-       $title = $_POST['news_title'];
-       $date =  $_POST['news_date'];
+       $title = Nettoyage::nettoyerChaine($_POST['news_title']);
+       $date =  Nettoyage::nettoyerChaine($_POST['news_date']);
        $content =  $_POST['news_content'];
-
-       $title = Nettoyage::nettoyerChaine($title);
-       $date = Nettoyage::nettoyerChaine($date);
 
        $mdl = new Modele();
        $mdl->insertNews($date, $title, $_SESSION['login'], $content);
