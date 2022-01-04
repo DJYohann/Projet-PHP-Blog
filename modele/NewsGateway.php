@@ -47,19 +47,19 @@ class NewsGateway{
         return $tabNews;
     }
 
-    public function deleteNews(News $news)
+    public function deleteNewsById(string $id): bool
     {
         $query = 'DELETE FROM tnews WHERE id = :id';
-        $this->con->executeQuery($query,array(
-            ':id' => array($news->getId(),PDO::PARAM_INT)
+        return $this->con->executeQuery($query,array(
+            ':id' => array($id,PDO::PARAM_STR)
         ));
     }
 
-    public function findNewsById(int $id) : News
+    public function findNewsById(string $id) : News
     {
         $query = 'SELECT * FROM tnews WHERE id = :id';
         $this->con->executeQuery($query,array(
-            ':id' => array($id,PDO::PARAM_INT)
+            ':id' => array($id,PDO::PARAM_STR)
         ));
 
         foreach ($this->con->getResult() as $news){

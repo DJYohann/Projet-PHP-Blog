@@ -29,13 +29,9 @@ class Modele
         return $this->gateNews->insertNews($date, $title, $author, $content);
     }
 
-    /**
-     * @param News $news news à supprimer
-     * @return bool confirmation de suppression
-     */
-    public function deleteNews(News $news) : bool
+    public function deleteNews(string $id) : bool
     {
-        return $this->gateNews->deleteNews($news);
+        return $this->gateNews->deleteNewsById($id);
     }
 
     public function getNbNews() : int
