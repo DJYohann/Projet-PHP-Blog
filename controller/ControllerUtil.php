@@ -9,7 +9,9 @@ class ControllerUtil
     public function __construct()
     {
         global $rep,$vues;
-        session_start();
+
+        if(!isset($_SESSION))
+            session_start();
 
         try {
             if (!isset($_REQUEST['action']))
