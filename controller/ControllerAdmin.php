@@ -83,8 +83,8 @@ class ControllerAdmin
        $mdl = new Modele();
        $mdl->insertNews($date, $title, $_SESSION['login'], $content);
 
-        $_REQUEST['action'] = NULL;
-        new ControllerUtil();
+       $_REQUEST['action'] = NULL;
+       new ControllerUtil();
     }
 
     public function delNews()

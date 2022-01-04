@@ -10,7 +10,7 @@ class NewsGateway{
 
     public function insertNews(string $date, string $title, string $author, string $content) : bool
     {
-        $query = 'INSERT INTO TNews(date,title,content) VALUES(:date,:title,:author,:content)';
+        $query = 'INSERT INTO TNews(date_creation,title,author,content) VALUES(STR_TO_DATE(:date,"%Y-%m-%d"),:title,:author,:content)';
         return $this->con->executeQuery($query,array(
             ':date' => array($date,PDO::PARAM_STR),
             ':title' => array($title,PDO::PARAM_STR),

@@ -97,7 +97,8 @@ class ControllerUtil
     public function afficherUneNews()
     {
         global $rep,$vues, $nbComments;
-        if (isset($_GET['id'])){
+        if (isset($_GET['id']))
+        {
             $id = Nettoyage::nettoyerChaine($_GET['id']);
             $mdl = new Modele();
             $mdlAdmin= new ModeleAdmin();
@@ -108,7 +109,8 @@ class ControllerUtil
             //$nbComments = $mdl->getNbCommentsByNews($id);
             require($rep.$vues['content-news']);
         }
-        else{
+        else
+        {
             $dVueEreur [] = "Aucune news sélectionée"; //utilisateur malveillant qui ne passe pas par le formulaire
             require($rep.$vues['erreur']);
         }

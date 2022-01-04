@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <?php echo '<h3>'.$news->getTitle().'</h3>' ?>
+                            <?php echo '<h3>'.$news->getTitle()." - Auteur : ".$news->getAuthor().'</h3>' ?>
                         </li>
                         <?php
                             if ($admin)
@@ -51,8 +51,11 @@
              {
                  echo '<p> Aucun commentaire pour cette news </p>';
              }
-            foreach ($comments as $comment) {
-                echo '<p>'.$comment->getContent().'<p>';
+             else
+             {
+                 foreach ($comments as $comment) {
+                     echo '<p>'.$comment->getContent().'<p>';
+             }
             }
         ?>
         <br><br>
