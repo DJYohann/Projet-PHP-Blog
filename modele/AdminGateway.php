@@ -28,7 +28,7 @@ class AdminGateway
         ));
 
         $results = $this->con->getResult();
-
+        $tabAdmin = array();
         foreach ($results as $row) {
             $tabAdmin[] = new Admin($row['login'], $row['mdp']);
         }
