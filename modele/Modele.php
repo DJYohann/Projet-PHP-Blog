@@ -62,6 +62,18 @@ class Modele
     //Comments
     public function insertComment(int $idNews, Comment $comm) : bool
     {
+        if(isset($_COOKIE['cpt'])){
+            $cpt = Nettoyage::nettoyerInt($_COOKIE['cpt']);
+        }
+        else
+            $cpt = 0;
+        $cpt = $cpt + 1;
+        setcookie('cpt',$cpt,time()+3600*24*365);
+
+        if(!isset($_SESSION['login']) && isset($_POST['user_pseudo'])){
+            $pseudo = Nettoyage::nettoyerChaine($_POST['user_pseudo']);
+            $_SESSION['login'] = $pseudo;
+        }
         return $this->gateComment->insert($idNews,$comm);
     }
 

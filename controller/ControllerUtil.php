@@ -70,7 +70,6 @@ class ControllerUtil
         {
             $pseudo = Nettoyage::nettoyerChaine($_POST['user_pseudo']);
             $message = Nettoyage::nettoyerChaine($_POST['user_comment']);
-
             $mdl->insertComment($id, new Comment($pseudo,$message));
             $this->afficherUneNews();
         }
