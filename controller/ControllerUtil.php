@@ -72,7 +72,7 @@ class ControllerUtil
             $message = Nettoyage::nettoyerChaine($_POST['user_comment']);
 
             $mdl->insertComment($id, new Comment($pseudo,$message));
-            $this->afficherNews();
+            $this->afficherUneNews();
         }
         else
         {
@@ -117,8 +117,11 @@ class ControllerUtil
 
             $news = $mdl->findNewsById($id);
             $admin = $mdlAdmin->isAdmin();
-            $comments = $mdl->findComments($id);
             $nbComments = $mdl->getNbCommentsByNews($id);
+            if ($nbComments != 0)
+            {
+                $comments = $mdl->findComments($id);
+            }
 
             require($rep.$vues['content-news']);
         }
