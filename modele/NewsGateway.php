@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Passerelle entre la classe News et la base de données
+ */
 class NewsGateway{
     private $con;
 
+    /**
+     * @param Connection $con connexion entre PHP et la base de données
+     */
     public function __construct(Connection $con)
     {
         $this->con = $con;

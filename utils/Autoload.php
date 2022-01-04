@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Auto-chargement de classes
+ */
 class Autoload
 {
     private static $_instance = null;
@@ -30,6 +33,9 @@ class Autoload
         }
     }
 
+    /**
+     * @param $class classe à inclure
+     */
     private static function _autoload($class)
     {
         global $rep;
@@ -37,7 +43,6 @@ class Autoload
         $dir =array('modele/','./','utils/','controller/');
         foreach ($dir as $d){
             $file=$rep.$d.$filename;
-            //echo $file;
             if (file_exists($file))
             {
                 include $file;

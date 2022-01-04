@@ -1,7 +1,9 @@
 <?php
 
+// Inclusion connexion BDD
 require_once(__DIR__ . '/../utils/Connection.php');
 
+// Répertoire du projet
 $rep = __DIR__.'/../';
 
 // BDD
