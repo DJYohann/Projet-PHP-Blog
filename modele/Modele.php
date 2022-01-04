@@ -73,6 +73,11 @@ class Modele
             $cpt = 0;
         $cpt = $cpt + 1;
         setcookie('cpt',$cpt,time()+3600*24*365);
+
+        if(!isset($_SESSION['login']) && isset($_POST['user_pseudo'])){
+            $pseudo = Nettoyage::nettoyerChaine($_POST['user_pseudo']);
+            $_SESSION['login'] = $pseudo;
+        }
         return $this->gateComment->insert($idNews,$comm);
     }
 

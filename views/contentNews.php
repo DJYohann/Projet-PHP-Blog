@@ -74,7 +74,14 @@
             <div class="form-group">
                 <div class="w-100">
                     <label for="pseudo">Pseudo :</label>
-                    <input class="form-control" type="text" id="pseudo" name="user_pseudo" required>
+                    <?php
+                    if(isset($_SESSION['login'])){
+                        $login = Nettoyage::nettoyerChaine($_SESSION['login']);
+                        echo "<input class=\"form-control\" value=\"".$login."\" type=\"text\" id=\"pseudo\" name=\"user_pseudo\" required>";
+                    }
+                    else
+                        echo "<input class=\"form-control\" type=\"text\" id=\"pseudo\" name=\"user_pseudo\" required>";
+                    ?>
                     <label for="comment">Commentaire :</label>
                     <textarea class="form-control" type="text" id="comment" name="user_comment" required></textarea>
                 </div>
