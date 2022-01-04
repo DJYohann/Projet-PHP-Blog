@@ -20,6 +20,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a href="index.php" class="nav-link active">accueil</a>
+                        </li>
+                        <li class="nav-item">
                             <?php echo '<h3>'.$news->getTitle()." - Auteur : ".$news->getAuthor().'</h3>' ?>
                         </li>
                         <?php
@@ -47,7 +50,7 @@
     <main class="d-flex flex-column align-items-left justify-content-center">
         <h3> Commentaires </h3>
         <?php
-             if ($nbComments == 0)
+             if (!isset($comments))
              {
                  echo '<p> Aucun commentaire pour cette news </p>';
              }

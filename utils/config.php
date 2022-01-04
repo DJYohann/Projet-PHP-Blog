@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../controller/Connection.php');
+require_once(__DIR__ . '/../utils/Connection.php');
 
 $rep = __DIR__.'/../';
 
