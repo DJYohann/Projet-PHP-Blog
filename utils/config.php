@@ -12,7 +12,7 @@ $mdp = "azertyuiop";
 $con = new Connection($dsn, $login, $mdp);
 
 // News
-$maxNews = 1;
+$nbMaxNews = 2;
 $nbComments = 0;
 
 // Views

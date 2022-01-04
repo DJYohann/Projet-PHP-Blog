@@ -58,11 +58,11 @@
 
 <main>
     <?php
-    if(!(isset($nbMaxNews ) && $nbMaxNews > 0))
+    if(!(isset($nbMaxNews ) || $nbMaxNews < 0))
     {
         $nbMaxNews = 1;
     }
-    if(!(isset($page) && $page > 0))
+    if(!(isset($page) || $page < 0))
     {
         $page = 1;
     }
@@ -83,7 +83,7 @@
     ?>
     </div>
     <?php
-    $pageMax = ceil($nbNews/$nbMaxNews);
+    $pageMax = ceil($nbNews/$nbMaxNews); //arrondi au supérieur
     if ($page > $pageMax)
     {
         $page = $pageMax;
