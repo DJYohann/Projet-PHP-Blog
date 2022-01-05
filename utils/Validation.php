@@ -24,12 +24,11 @@ class Validation {
             $mdp = "";
         }
 
-        if (($login != filter_var($login, FILTER_SANITIZE_STRING)) || ($mdp != filter_var($mdp, FILTER_SANITIZE_STRING)))
+        if (($login != Nettoyage::nettoyerChaine($login)) || ($mdp != Nettoyage::nettoyerChaine($mdp)))
         {
             $dVueEreur[] =	"testative d'injection de code (attaque sécurité)";
             $login = "";
             $mdp = "";
-
         }
     }
 }
