@@ -115,7 +115,7 @@ class Modele
         }
         return $this->gateComment->insert($idNews,$comm);
     }
-    
+
     /**
      * @return string nombre de commentaires
      */
