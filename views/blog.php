@@ -104,16 +104,16 @@
     <?php
     if($page == 1){
         if($pageMax > 1) {
-            echo "<div> $page <a href=\"index.php?page=" . $pageIncremente . "\">&gt;</a><a href=\"index.php?page=" . $pageMax . "\">&gt;&gt;</a> </div>";
+            echo "<div> $page <a href=\"index.php?page=" . $pageIncremente . "\">&gt;</a>&nbsp;&nbsp;<a href=\"index.php?page=" . $pageMax . "\">&gt;&gt;</a> </div>";
         }
         else
             echo "<div> $page </div>";
     }
     elseif($page == $pageMax){
-        echo "<div> <a href=\"index.php?page=1\">&lt;&lt;</a><a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page </div>";
+        echo "<div> <a href=\"index.php?page=1\">&lt;&lt;</a>&nbsp;&nbsp;<a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page </div>";
     }
     else{
-        echo "<div> <a href=\"index.php?page=1\">&lt;&lt;</a><a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page <a href=\"index.php?page=".$pageIncremente."\">&gt;</a><a href=\"index.php?page=" . $pageMax . "\">&gt;&gt;</a> </div>";
+        echo "<div> <a href=\"index.php?page=1\">&lt;&lt;</a>&nbsp;&nbsp;<a href=\"index.php?page=".$pageDecremente."\">&lt;</a> $page <a href=\"index.php?page=".$pageIncremente."\">&gt;</a>&nbsp;&nbsp;<a href=\"index.php?page=" . $pageMax . "\">&gt;&gt;</a> </div>";
     }
         ?>
     </div>
