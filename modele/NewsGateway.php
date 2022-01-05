@@ -41,7 +41,7 @@ class NewsGateway{
     {
         $page = $page - 1;
         $debut = $page * $nbNews;
-        $query = 'SELECT * FROM tnews LIMIT :debut,:nbNews';
+        $query = 'SELECT * FROM tnews ORDER BY date_creation DESC LIMIT :debut,:nbNews ';
         $this->con->executeQuery($query,array(
             ':debut' => array($debut,PDO::PARAM_INT),
             ':nbNews' => array($nbNews,PDO::PARAM_INT)
