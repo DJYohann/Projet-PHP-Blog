@@ -79,7 +79,7 @@
                     <label for="pseudo">Pseudo :</label>
                     <?php
                     if(isset($_SESSION['login'])){
-                        $login = Nettoyage::nettoyerChaine($_SESSION['login']);
+                        $login = $_SESSION['login'];
                         echo "<input class=\"form-control\" value=\"".$login."\" type=\"text\" id=\"pseudo\" name=\"user_pseudo\" required>";
                     }
                     else
