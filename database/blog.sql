@@ -117,7 +117,6 @@ INSERT INTO `tnews` (`id`, `date_creation`, `title`, `author`, `content`) VALUES
 --
 ALTER TABLE `tcomments`
   ADD CONSTRAINT `commentFK` FOREIGN KEY (`id_news`) REFERENCES `tnews` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tcomments_ibfk_1` FOREIGN KEY (`id_news`) REFERENCES `tcomments` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
