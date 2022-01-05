@@ -46,9 +46,7 @@
                           <div>'.$news->getContent().'</div>';
                 ?>
             </div>
-    </main>
     <br><br>
-    <main class="d-flex flex-column align-items-left justify-content-center">
         <div class="w-100 d-flex flex-column align-items-center">
             <div class="big-conteneur-comments">
         <h3 style="text-decoration: underline; text-align: center"> Commentaires </h3>
@@ -70,8 +68,6 @@
             </div>
         </div>
         <br><br>
-    </main>
-    <main class="d-flex flex-column align-items-center justify-content-center">
         <h3>Ajouter commentaire</h3>
         <br><br>
         <?php
