@@ -24,6 +24,11 @@ Ouvrir le site avec votre environnement de développement PHP :
 
 * Linux : [LAMP](https://doc.ubuntu-fr.org/lamp)
 
+Pour vous connecter en tant qu'admin : 
+
+* Login : admin 
+* Mot de passe : admin-PHP-1234
+
 ## Equipe : 
 
 * Ugo VIGNON

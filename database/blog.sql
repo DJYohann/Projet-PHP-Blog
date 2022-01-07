@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `tadmin` (
 INSERT INTO `tadmin` (`id`, `login`, `mdp`) VALUES
 (1, 'ugvignon', '$2y$10$HgzllNIYqrp8Jwm7LXctW.Rm1Ub.bQNE57EjaqEr3qc5Q.dAPWABm'),
 (2, 'yobreuil', '$2y$10$1o6aRR9Fxj5MPN0pmuv3ZebEThTkdEs7vU7Q.xF4DMnBZgpTHJLZi'),
-(3, 'sesalva', '$2y$10$49egE/El6PUsvnBWK7qiyu8zpyptow5wpcH8OFCFMUp6tNl3uzoyO');
+(3, 'sesalva', '$2y$10$49egE/El6PUsvnBWK7qiyu8zpyptow5wpcH8OFCFMUp6tNl3uzoyO'),
+(4, 'admin', '$2y$10$mBDJWPxy1fbVveHTy8RQROTyHlfgb2Gvfc/kVusmzkYAT.jNNxsvO');
 
 -- --------------------------------------------------------
 
