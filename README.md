@@ -12,6 +12,8 @@ Les utilisateurs normaux ne peuvent qu'ajouter des commentaires.
 
 Une news correspond à du texte écrit en HTML. 
 
+Ce projet a pour but de s'entraîner au modèle MVC et au langage PHP
+
 ## Configuration 
 
 Importer le fichier [database/blog.sql](database/blog.sql) dans une base de données MySQL
