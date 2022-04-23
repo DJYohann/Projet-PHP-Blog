@@ -1,5 +1,7 @@
 # Projet-PHP-Blog
 
+<a href="https://www.php.net/"> <img src="https://img.shields.io/badge/PHP-7.4.21-%238892BF"> </a>
+
 ## Presentation 
 
 Le but du projet est de proposer la gestion complète d'un blog (journal de "news" ajoutées par date) en PHP.
