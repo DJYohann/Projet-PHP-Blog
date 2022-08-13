@@ -22,7 +22,7 @@ Importer le fichier [database/blog.sql](database/blog.sql) dans une base de donn
 
 Ouvrir le site avec votre environnement de développement PHP :
 
-* Windows : [WAMP](https://www.wampserver.com/)
+* Windows : [Laragon](https://laragon.org/)
 
 * MacOS : [MAMP](https://www.mamp.info/fr/downloads/)
 
@@ -33,7 +33,7 @@ Pour vous connecter en tant qu'admin :
 * Login : admin 
 * Mot de passe : admin-PHP-1234
 
-## Equipe : 
+## Auteurs : 
 
-* Ugo VIGNON
-* Yohann BREUIL
+* [Ugo VIGNON](https://github.com/UgoWithoutH)
+* [Yohann BREUIL](https://github.com/DJYohann)
